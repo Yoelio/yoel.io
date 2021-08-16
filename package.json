@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:yoelio": "lerna run dev --scope=yoel.io --stream"
+    "dev:yoelio": "lerna run dev --scope=yoelio --stream"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
