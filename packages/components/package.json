@@ -1,0 +1,32 @@
+{
+  "name": "@yoelio/components",
+  "version": "1.0.0",
+  "description": "Component Library for yoel.io built with Chakra UI",
+  "author": "yoelio <43119219+Yoelio@users.noreply.github.com>",
+  "homepage": "https://github.com/Yoelio/yoel.io#readme",
+  "license": "ISC",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yoelio/yoel.io.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Yoelio/yoel.io/issues"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.6.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.17",
+    "eslint": "7.32.0",
+    "typescript": "4.3.5"
+  }
+}

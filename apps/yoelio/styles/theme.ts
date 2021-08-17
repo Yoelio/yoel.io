@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
+import { HeaderStyle as Header } from "@yoelio/components";
 
 const theme = extendTheme({
   config: {
@@ -52,6 +53,7 @@ const theme = extendTheme({
         color: props.colorMode === "dark" ? "base.1" : "base.01",
       }),
     },
+    Header,
   },
 });
 

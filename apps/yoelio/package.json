@@ -1,5 +1,5 @@
 {
-  "name": "yoelio",
+  "name": "@yoelio/yoel.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.6.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@yoelio/components": "workspace:packages/components",
     "framer-motion": "^4",
     "next": "11.1.0",
     "react": "17.0.2",
