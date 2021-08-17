@@ -8,11 +8,13 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       body: {
-        fontFamily: "Roboto Mono",
-        color: props.colorMode === "dark" ? "base.1" : "base.01",
         backgroundColor: props.colorMode === "dark" ? "base.03" : "base.3",
       },
     }),
+  },
+  fonts: {
+    heading: "Roboto Mono",
+    body: "Roboto Mono",
   },
   colors: {
     base: {
@@ -33,6 +35,23 @@ const theme = extendTheme({
     blue: "#268bd2",
     cyan: "#2aa198",
     green: "#859900",
+  },
+  components: {
+    Text: {
+      baseStyle: (props) => ({
+        color: props.colorMode === "dark" ? "base.2" : "base.02",
+      }),
+      variants: {
+        secondary: (props) => ({
+          color: props.colorMode === "dark" ? "base.1" : "base.01",
+        }),
+      },
+    },
+    Heading: {
+      baseStyle: (props) => ({
+        color: props.colorMode === "dark" ? "base.1" : "base.01",
+      }),
+    },
   },
 });
 
