@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { Header, HeaderGroup } from "@yoelio/components";
 
 const Home: NextPage = () => {
@@ -12,26 +12,30 @@ const Home: NextPage = () => {
         <link rel="icon" href="/yoelio_logo.png" />
       </Head>
       <Header>
-        <HeaderGroup></HeaderGroup>
+        <HeaderGroup>
+          <Text>Yoel</Text>
+        </HeaderGroup>
       </Header>
-      <Flex maxW="5xl" mx="auto" h="66vh" direction="column" justifyContent="center">
-        <Heading as="h1" fontSize="2xl">
-          Hey there! I'm-
-          <Text as="span" fontSize={["5xl", "6xl", "8xl"]} color="cyan" fontWeight="black" display="block">
-            <Text as="span" display="block">
+      <Flex maxW="5xl" mx="auto" mt={16} h="66vh" direction="column" justifyContent="center">
+        <Text as="h1" textStyle="eyebrow" variant="secondary">
+          Hey there! I&apos;m-
+          <Text as="span" textStyle="h1" color="cyan" display="block">
+            <Text as="span" display={["inline", "block"]}>
               Yoel
             </Text>
-            Kiflezghi.
+            &nbsp;Kiflezghi
           </Text>
-        </Heading>
-        <Text fontSize="xl">
+        </Text>
+        <Text fontSize="2xl">
           Software Engineer.
           <Text as="span" variant="secondary">
             &nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis praesentium molestias optio
-            quaerat. Odit ex id illo laudantium ipsum fuga veritatis sunt impedit nisi, unde facilis, officia dolore
-            autem. Quo.
+            quaerat.
           </Text>
         </Text>
+      </Flex>
+      <Flex as="section" id="projects" maxW="5xl" mx="auto" direction="column" justifyContent="center">
+        <Text textStyle="h2">Projects</Text>
       </Flex>
     </>
   );

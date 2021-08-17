@@ -26,6 +26,7 @@ export const HeaderStyle: ComponentStyleConfig = {
     h: 16,
     w: "full",
     position: "fixed",
+    insetY: 0,
     justifyContent: "space-between",
     boxShadow: "md",
   }),

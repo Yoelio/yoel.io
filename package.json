@@ -6,7 +6,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:yoel.io": "yarn workspace @yoelio/yoel.io dev"
+    "dev:yoel.io": "yarn workspace @yoelio/yoel.io dev",
+    "vercel-build": "yarn workspace @yoelio/yoel.io build"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

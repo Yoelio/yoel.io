@@ -37,6 +37,26 @@ const theme = extendTheme({
     cyan: "#2aa198",
     green: "#859900",
   },
+  textStyles: {
+    eyebrow: {
+      fontSize: ["1rem", null, "1.5rem"],
+    },
+    h1: {
+      fontSize: ["2.25rem", "3.75rem", "6rem"],
+      fontWeight: "bold",
+      lineHeight: "110%",
+      letterSpacing: "-2%",
+    },
+    h2: {
+      fontSize: ["1.5rem", "1.875rem", "2.25rem"],
+      fontWeight: "semibold",
+      lineHeight: "110%",
+      letterSpacing: "-1%",
+    },
+    body: {
+      fontSize: ["1rem", "1rem", "1.5rem"],
+    },
+  },
   components: {
     Text: {
       baseStyle: (props) => ({
@@ -47,11 +67,6 @@ const theme = extendTheme({
           color: props.colorMode === "dark" ? "base.1" : "base.01",
         }),
       },
-    },
-    Heading: {
-      baseStyle: (props) => ({
-        color: props.colorMode === "dark" ? "base.1" : "base.01",
-      }),
     },
     Header,
   },
