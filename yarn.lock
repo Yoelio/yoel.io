@@ -2443,7 +2443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yoelio/components@workspace:packages/components":
+"@yoelio/components@1.0.0, @yoelio/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@yoelio/components@workspace:packages/components"
   dependencies:
@@ -2467,7 +2467,7 @@ __metadata:
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@types/react": 17.0.17
-    "@yoelio/components": "workspace:packages/components"
+    "@yoelio/components": 1.0.0
     eslint: 7.32.0
     eslint-config-next: 11.1.0
     framer-motion: ^4
