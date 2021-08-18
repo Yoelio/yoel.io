@@ -18,11 +18,25 @@ const Home: NextPage = () => {
           <Text>Logo here</Text>
         </HeaderGroup>
         <HeaderGroup mx={4}>
-          <Link href="https://linkedin.com/in/yoel-k" isExternal>
-            <Button variant="secondary" boxShadow="md" iconSpacing={0} leftIcon={<FaLinkedin size={20} />} />
+          <Link href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
+            <Button
+              variant="secondary"
+              boxShadow="md"
+              iconSpacing={0}
+              leftIcon={<FaLinkedin size={20} />}
+              aria-hidden
+              tabIndex={-1}
+            />
           </Link>
-          <Link href="https://github.com/Yoelio" isExternal>
-            <Button variant="secondary" boxShadow="md" iconSpacing={0} leftIcon={<FaGithub size={20} />} />
+          <Link href="https://github.com/Yoelio" isExternal aria-label="GitHub">
+            <Button
+              variant="secondary"
+              boxShadow="md"
+              iconSpacing={0}
+              leftIcon={<FaGithub size={20} />}
+              aria-hidden
+              tabIndex={-1}
+            />
           </Link>
           <Button
             variant="secondary"
@@ -30,6 +44,7 @@ const Home: NextPage = () => {
             iconSpacing={0}
             leftIcon={colorMode === "light" ? <FaMoon size={20} /> : <FaSun size={20} />}
             onClick={toggleColorMode}
+            aria-label="Toggle Color Mode"
           />
         </HeaderGroup>
       </Header>
