@@ -6,10 +6,12 @@ import { Card, Header, HeaderGroup } from "@yoelio/components";
 import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
 import googlePic from "../public/google.png";
 import microsoftPic from "../public/microsoft.png";
+import { PillPity } from "pill-pity";
 
 const Home: NextPage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const buttonIconColor = useColorModeValue("#002b36", "#fdf6e3");
+  const accentColor = useColorModeValue("yellow", "cyan");
   return (
     <>
       <Head>
@@ -58,14 +60,14 @@ const Home: NextPage = () => {
           />
         </HeaderGroup>
       </Header>
-      <Box as="main">
+      <PillPity as="main" patFill={accentColor} pattern="topography" bgColor="transparent" patOpacity={0.3}>
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
           <Text fontWeight="normal">Hey there! I&apos;m-</Text>
           <Flex as="h1" textStyle="h1" direction="column" mt={2}>
             <Text as="span" textStyle="inherit">
               Yoel
             </Text>
-            <Text as="span" textStyle="inherit" color="cyan">
+            <Text as="span" textStyle="inherit" color={accentColor}>
               Kiflezghi.
             </Text>
           </Flex>
@@ -101,7 +103,7 @@ const Home: NextPage = () => {
             </Card>
           </Stack>
         </Flex>
-      </Box>
+      </PillPity>
     </>
   );
 };

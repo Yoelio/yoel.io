@@ -92,6 +92,11 @@ const theme = extendTheme({
         bg: props.colorMode === "dark" ? "base.02" : "base.2",
       }),
     },
+    PillPity: {
+      baseStyle: (props) => ({
+        patFill: "cyan",
+      }),
+    },
   },
 });
 

@@ -10,7 +10,7 @@ interface HeaderProps extends Omit<FlexProps, "direction"> {
 type HeaderGroupProps = Omit<StackProps, "direction">;
 
 const Header: React.FC<HeaderProps> = forwardRef<HeaderProps, "div">(({ children, ...rest }, ref) => {
-  const styles = useStyleConfig("Header", undefined);
+  const styles = useStyleConfig("Header");
   return (
     <HStack __css={styles} {...rest} ref={ref}>
       {children}

@@ -1,7 +1,7 @@
 import { Flex, FlexProps, ComponentStyleConfig, useStyleConfig, forwardRef } from "@chakra-ui/react";
 
 const Card: React.FC<FlexProps> = forwardRef<FlexProps, "div">((props, ref) => {
-  const styles = useStyleConfig("Card", undefined);
+  const styles = useStyleConfig("Card");
   return <Flex __css={styles} {...props} ref={ref} />;
 });
 
