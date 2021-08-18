@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { Header, HeaderGroup } from "@yoelio/components";
 
 const Home: NextPage = () => {
@@ -13,30 +13,41 @@ const Home: NextPage = () => {
       </Head>
       <Header>
         <HeaderGroup>
-          <Text>Yoel</Text>
+          <Text>Logo here</Text>
         </HeaderGroup>
       </Header>
-      <Flex maxW="5xl" mx="auto" mt={16} h="66vh" direction="column" justifyContent="center">
-        <Text as="h1" textStyle="eyebrow" variant="secondary">
-          Hey there! I&apos;m-
-          <Text as="span" textStyle="h1" color="cyan" display="block">
-            <Text as="span" display={["inline", "block"]}>
-              Yoel
+      <Box as="main">
+        <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} mt={36} direction="column">
+          <Text textStyle="body" fontWeight="light">
+            Hey there! I&apos;m-
+          </Text>
+          <Flex as="h1" textStyle="h1" direction="column" mt={2}>
+            <Text as="span">Yoel</Text>
+            <Text as="span" color="cyan">
+              Kiflezghi.
             </Text>
-            &nbsp;Kiflezghi
+          </Flex>
+          <Text textStyle="headline" mt={8}>
+            Software Engineer.
+            <Text as="span" variant="secondary">
+              &nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis praesentium molestias optio
+              quaerat.
+            </Text>
           </Text>
-        </Text>
-        <Text fontSize="2xl">
-          Software Engineer.
-          <Text as="span" variant="secondary">
-            &nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis praesentium molestias optio
-            quaerat.
-          </Text>
-        </Text>
-      </Flex>
-      <Flex as="section" id="projects" maxW="5xl" mx="auto" direction="column" justifyContent="center">
-        <Text textStyle="h2">Projects</Text>
-      </Flex>
+        </Flex>
+        <Flex
+          as="section"
+          id="experience"
+          maxW="5xl"
+          mx="auto"
+          px={4}
+          mt={[12, 48]}
+          direction="column"
+          justifyContent="center"
+        >
+          <Text textStyle="h2">Experience</Text>
+        </Flex>
+      </Box>
     </>
   );
 };

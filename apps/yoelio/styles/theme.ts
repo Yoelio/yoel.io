@@ -38,12 +38,9 @@ const theme = extendTheme({
     green: "#859900",
   },
   textStyles: {
-    eyebrow: {
-      fontSize: ["1rem", null, "1.5rem"],
-    },
     h1: {
       fontSize: ["2.25rem", "3.75rem", "6rem"],
-      fontWeight: "bold",
+      fontWeight: "black",
       lineHeight: "110%",
       letterSpacing: "-2%",
     },
@@ -54,7 +51,10 @@ const theme = extendTheme({
       letterSpacing: "-1%",
     },
     body: {
-      fontSize: ["1rem", "1rem", "1.5rem"],
+      fontSize: ["0.875rem", "1rem", "1.125rem"],
+    },
+    headline: {
+      fontSize: ["1rem", "1.25rem", "1.5rem"],
     },
   },
   components: {
