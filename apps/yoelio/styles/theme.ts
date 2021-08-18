@@ -71,10 +71,12 @@ const theme = extendTheme({
     Text: {
       baseStyle: (props) => ({
         color: props.colorMode === "dark" ? "base.2" : "base.02",
+        textStyle: "body",
       }),
       variants: {
         secondary: (props) => ({
           color: props.colorMode === "dark" ? "base.1" : "base.01",
+          textStyle: "body",
         }),
       },
     },

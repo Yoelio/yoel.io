@@ -1,8 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Button, Flex, Link, Text, useColorMode } from "@chakra-ui/react";
+import Image from "next/image";
+import { Box, Button, Flex, Link, Stack, Text, useColorMode } from "@chakra-ui/react";
 import { Card, Header, HeaderGroup } from "@yoelio/components";
 import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
+
+import googlePic from "../public/google.png";
+import microsoftPic from "../public/microsoft.png";
 
 const Home: NextPage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -50,18 +54,18 @@ const Home: NextPage = () => {
       </Header>
       <Box as="main">
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} mt={36} direction="column">
-          <Text textStyle="body" fontWeight="light">
-            Hey there! I&apos;m-
-          </Text>
+          <Text fontWeight="light">Hey there! I&apos;m-</Text>
           <Flex as="h1" textStyle="h1" direction="column" mt={2}>
-            <Text as="span">Yoel</Text>
-            <Text as="span" color="cyan">
+            <Text as="span" textStyle="inherit">
+              Yoel
+            </Text>
+            <Text as="span" textStyle="inherit" color="cyan">
               Kiflezghi.
             </Text>
           </Flex>
           <Text textStyle="headline" mt={8}>
             Software Engineer.
-            <Text as="span" variant="secondary">
+            <Text as="span" textStyle="inherit" variant="secondary">
               &nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis praesentium molestias optio
               quaerat.
             </Text>
@@ -78,9 +82,18 @@ const Home: NextPage = () => {
           justifyContent="center"
         >
           <Text textStyle="h2">Experience</Text>
-          <Card>
-            <Text>Hi there</Text>
-          </Card>
+          <Stack mt={4}>
+            <Card>
+              <Box w={[16, 24, 36]} m={4}>
+                <Image src={microsoftPic} placeholder="blur" alt="Microsoft logo" />
+              </Box>
+            </Card>
+            <Card>
+              <Box w={[16, 24, 36]} m={4}>
+                <Image src={googlePic} placeholder="blur" alt="Google logo" />
+              </Box>
+            </Card>
+          </Stack>
         </Flex>
       </Box>
     </>
