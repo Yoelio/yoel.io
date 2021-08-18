@@ -2472,6 +2472,7 @@ __metadata:
     eslint-config-next: 11.1.0
     framer-motion: ^4
     next: 11.1.0
+    pill-pity: ^0.2.2
     react: 17.0.2
     react-dom: 17.0.2
     react-icons: ^4.2.0
@@ -7572,6 +7573,16 @@ fsevents@~2.3.1:
   version: 5.0.0
   resolution: "pify@npm:5.0.0"
   checksum: 443e3e198ad6bfa8c0c533764cf75c9d5bc976387a163792fb553ffe6ce923887cf14eebf5aea9b7caa8eab930da8c33612990ae85bd8c2bc18bedb9eae94ecb
+  languageName: node
+  linkType: hard
+
+"pill-pity@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "pill-pity@npm:0.2.2"
+  peerDependencies:
+    "@chakra-ui/react": ">=1.6.2"
+    react: ">=16"
+  checksum: 7388ac997b3bc163c9209e0131aece5788c1f5a44d61ff488424c5fb4c2a1612c9a9328e87baf80bf61b46924f18c0a003fc4a95859838f47d59b447777e6e14
   languageName: node
   linkType: hard
 

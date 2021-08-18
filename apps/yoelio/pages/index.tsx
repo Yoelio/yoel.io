@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { Box, Button, Flex, Link, Stack, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Button, Flex, Link, Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { Card, Header, HeaderGroup } from "@yoelio/components";
 import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
-
 import googlePic from "../public/google.png";
 import microsoftPic from "../public/microsoft.png";
 
 const Home: NextPage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const buttonIconColor = useColorModeValue("#002b36", "#fdf6e3");
   return (
     <>
       <Head>
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
               variant="secondary"
               boxShadow="md"
               iconSpacing={0}
-              leftIcon={<FaLinkedin size={20} />}
+              leftIcon={<FaLinkedin size={20} color={buttonIconColor} />}
               aria-hidden
               tabIndex={-1}
             />
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
               variant="secondary"
               boxShadow="md"
               iconSpacing={0}
-              leftIcon={<FaGithub size={20} />}
+              leftIcon={<FaGithub size={20} color={buttonIconColor} />}
               aria-hidden
               tabIndex={-1}
             />
@@ -46,15 +46,21 @@ const Home: NextPage = () => {
             variant="secondary"
             boxShadow="md"
             iconSpacing={0}
-            leftIcon={colorMode === "light" ? <FaMoon size={20} /> : <FaSun size={20} />}
+            leftIcon={
+              colorMode === "light" ? (
+                <FaMoon size={20} color={buttonIconColor} />
+              ) : (
+                <FaSun size={20} color={buttonIconColor} />
+              )
+            }
             onClick={toggleColorMode}
             aria-label="Toggle Color Mode"
           />
         </HeaderGroup>
       </Header>
       <Box as="main">
-        <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} mt={36} direction="column">
-          <Text fontWeight="light">Hey there! I&apos;m-</Text>
+        <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
+          <Text fontWeight="normal">Hey there! I&apos;m-</Text>
           <Flex as="h1" textStyle="h1" direction="column" mt={2}>
             <Text as="span" textStyle="inherit">
               Yoel

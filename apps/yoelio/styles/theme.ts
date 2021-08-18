@@ -3,7 +3,7 @@ import { HeaderStyle as Header, CardStyle as Card } from "@yoelio/components";
 
 const theme = extendTheme({
   config: {
-    initialColorMode: "light",
+    initialColorMode: "dark",
     useSystemColorMode: true,
   },
   styles: {
