@@ -21,15 +21,14 @@ const Header: React.FC<HeaderProps> = forwardRef<HeaderProps, "div">(({ children
 export const HeaderGroup: React.FC<HeaderGroupProps> = (props) => <HStack {...props} />;
 
 export const HeaderStyle: ComponentStyleConfig = {
-  baseStyle: (props) => ({
-    bg: props.colorMode === "dark" ? "base.02" : "base.2",
+  baseStyle: {
     h: 16,
     w: "full",
     position: "fixed",
     insetY: 0,
     justifyContent: "space-between",
     boxShadow: "md",
-  }),
+  },
 };
 
 export default Header;

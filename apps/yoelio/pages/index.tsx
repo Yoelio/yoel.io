@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Box, Button, Flex, Link, Text, useColorMode } from "@chakra-ui/react";
-import { Header, HeaderGroup } from "@yoelio/components";
+import { Card, Header, HeaderGroup } from "@yoelio/components";
 import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Home: NextPage = () => {
@@ -78,6 +78,9 @@ const Home: NextPage = () => {
           justifyContent="center"
         >
           <Text textStyle="h2">Experience</Text>
+          <Card>
+            <Text>Hi there</Text>
+          </Card>
         </Flex>
       </Box>
     </>

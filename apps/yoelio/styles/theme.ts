@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { HeaderStyle as Header } from "@yoelio/components";
+import { HeaderStyle as Header, CardStyle as Card } from "@yoelio/components";
 
 const theme = extendTheme({
   config: {
@@ -78,7 +78,18 @@ const theme = extendTheme({
         }),
       },
     },
-    Header,
+    Header: {
+      baseStyle: (props) => ({
+        ...Header.baseStyle,
+        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+      }),
+    },
+    Card: {
+      baseStyle: (props) => ({
+        ...Card.baseStyle,
+        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+      }),
+    },
   },
 });
 
