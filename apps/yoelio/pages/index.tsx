@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, useColorMode } from "@chakra-ui/react";
 import { Header, HeaderGroup } from "@yoelio/components";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const Home: NextPage = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
       <Head>
@@ -12,8 +14,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/yoelio_logo.png" />
       </Head>
       <Header>
-        <HeaderGroup>
+        <HeaderGroup mx={4}>
           <Text>Logo here</Text>
+        </HeaderGroup>
+        <HeaderGroup mx={4}>
+          <Button
+            variant="secondary"
+            boxShadow="md"
+            iconSpacing={0}
+            leftIcon={colorMode === "light" ? <FaMoon /> : <FaSun size={20} />}
+            onClick={toggleColorMode}
+          />
         </HeaderGroup>
       </Header>
       <Box as="main">

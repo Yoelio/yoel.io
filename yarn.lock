@@ -2474,6 +2474,7 @@ __metadata:
     next: 11.1.0
     react: 17.0.2
     react-dom: 17.0.2
+    react-icons: ^4.2.0
     typescript: 4.3.5
   languageName: unknown
   linkType: soft
@@ -7915,6 +7916,15 @@ fsevents@~2.3.1:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: 4a86e44cb46dc54caef485f476f4462dedffad7cdb7f80c1ae5e5127311ea3b166366481b664bf732fe893f31c647cb6267ad833bd58f046062235383747ee2b
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "react-icons@npm:4.2.0"
+  peerDependencies:
+    react: "*"
+  checksum: 2b42d9b0ac85a57f8de28819b5f452b2c851f4caec09a855596d47557b775a434802fce1f3dc3811eebf46cf4d7c79fa4650330d5772345d6839f86c83afc01d
   languageName: node
   linkType: hard
 

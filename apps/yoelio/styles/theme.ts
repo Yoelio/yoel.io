@@ -58,6 +58,16 @@ const theme = extendTheme({
     },
   },
   components: {
+    Button: {
+      baseStyle: (props) => ({
+        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+      }),
+      variants: {
+        secondary: (props) => ({
+          bg: props.colorMode === "dark" ? "base.03" : "base.3",
+        }),
+      },
+    },
     Text: {
       baseStyle: (props) => ({
         color: props.colorMode === "dark" ? "base.2" : "base.02",
