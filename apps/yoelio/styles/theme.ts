@@ -52,14 +52,19 @@ const theme = extendTheme({
       lineHeight: "110%",
       letterSpacing: "-1%",
     },
+    h3: {
+      fontSize: ["1rem", "1.25rem"],
+      fontWeight: "semibold",
+      letterSpacing: "-1%",
+    },
     body: {
-      fontSize: ["0.875rem", "1rem", "1.125rem"],
+      fontSize: ["0.875rem", "1rem"],
     },
     headline: {
       fontSize: ["1rem", "1.25rem", "1.5rem"],
     },
     footer: {
-      fontSize: ["0.75rem", "0.875rem", "1rem"],
+      fontSize: ["0.75rem", "0.875rem"],
     },
   },
   components: {

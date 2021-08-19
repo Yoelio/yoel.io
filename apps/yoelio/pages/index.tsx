@@ -14,6 +14,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
+
 import { FaSun, FaMoon, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 
@@ -144,27 +145,27 @@ const Home: NextPage = () => {
                 <Image src={microsoft} alt="Microsoft logo" width="100%" height="100%" />
               </Box>
               <Box>
-                <Text mt={4}>
+                <Text mt={4} textStyle="h3">
                   Explore Intern at&nbsp;
-                  <Text as="span" fontWeight="bold">
+                  <Text as="span" fontWeight="bold" textStyle="inherit">
                     Microsoft
                   </Text>
                 </Text>
                 <Text variant="secondary">Remote</Text>
-                <UnorderedList>
-                  <ListItem>
+                <UnorderedList listStyleType="square" ml={6} mt={4}>
+                  <ListItem color={accentColor}>
                     <Text>
                       Designed and developed a global theming system for the entire Power Apps mobile app allowing for
                       dynamic light/dark mode switching with minimal refactoring.
                     </Text>
                   </ListItem>
-                  <ListItem>
+                  <ListItem color={accentColor}>
                     <Text>
                       Worked closely with UI designer to implement themes in accordance with design and accessibility
                       specifications.
                     </Text>
                   </ListItem>
-                  <ListItem>
+                  <ListItem color={accentColor}>
                     <Text>Developed in React Native and TypeScript.</Text>
                   </ListItem>
                 </UnorderedList>
@@ -175,27 +176,27 @@ const Home: NextPage = () => {
                 <Image src={google} alt="Google logo" width="100%" height="100%" />
               </Box>
               <Box>
-                <Text mt={4}>
+                <Text mt={4} textStyle="h3">
                   Engineering Practicum Intern at&nbsp;
-                  <Text as="span" fontWeight="bold">
+                  <Text as="span" fontWeight="extrabold" textStyle="inherit">
                     Google
                   </Text>
                 </Text>
                 <Text variant="secondary">Sunnyvale, CA</Text>
-                <UnorderedList>
-                  <ListItem>
+                <UnorderedList listStyleType="square" ml={6} mt={4}>
+                  <ListItem color={accentColor}>
                     <Text>
                       Built a consumer-facing feature enabling users to receive, edit, and save phone contacts sent over
                       MMS in the Google Voice Android app.
                     </Text>
                   </ListItem>
-                  <ListItem>
+                  <ListItem color={accentColor}>
                     <Text>
                       Utilized Google&apos;s internal Android concurrency framework to free up the main UI thread while
                       parsing contact information payload.
                     </Text>
                   </ListItem>
-                  <ListItem>
+                  <ListItem color={accentColor}>
                     <Text>Developed in Java.</Text>
                   </ListItem>
                 </UnorderedList>
