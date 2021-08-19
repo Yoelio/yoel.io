@@ -12,7 +12,7 @@ type HeaderGroupProps = Omit<StackProps, "direction">;
 const Header: React.FC<HeaderProps> = forwardRef<HeaderProps, "div">(({ children, ...rest }, ref) => {
   const styles = useStyleConfig("Header");
   return (
-    <HStack __css={styles} {...rest} ref={ref}>
+    <HStack as="header" __css={styles} {...rest} ref={ref}>
       {children}
     </HStack>
   );

@@ -2,15 +2,19 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { Box, Button, Flex, Link, Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import { Card, Header, HeaderGroup } from "@yoelio/components";
-import { FaSun, FaMoon, FaGithub, FaLinkedin } from "react-icons/fa";
-import googlePic from "../public/google.png";
-import microsoftPic from "../public/microsoft.png";
+import { FaSun, FaMoon, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 
+import { Card, Header, HeaderGroup } from "@yoelio/components";
+import googlePic from "../public/google.png";
+import microsoftPic from "../public/microsoft.png";
+import theme from "../styles/theme";
+
 const Home: NextPage = () => {
+  const { colors } = theme;
   const { colorMode, toggleColorMode } = useColorMode();
-  const buttonIconColor = useColorModeValue("#002b36", "#fdf6e3");
+  const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
+  const colorModeIconColor = useColorModeValue(colors.violet, colors.yellow);
   const accentColor = useColorModeValue("yellow", "cyan");
   return (
     <>
@@ -24,35 +28,20 @@ const Home: NextPage = () => {
           <Text>Logo here</Text>
         </HeaderGroup>
         <HeaderGroup mx={4}>
-          <Link href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
-            <Button
-              variant="secondary"
-              boxShadow="md"
-              iconSpacing={0}
-              leftIcon={<FaLinkedin size={20} color={buttonIconColor} />}
-              aria-hidden
-              tabIndex={-1}
-            />
+          <Link variant="buttonAlt" href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
+            <FaLinkedin size={20} color={buttonIconColor} />
           </Link>
-          <Link href="https://github.com/Yoelio" isExternal aria-label="GitHub">
-            <Button
-              variant="secondary"
-              boxShadow="md"
-              iconSpacing={0}
-              leftIcon={<FaGithub size={20} color={buttonIconColor} />}
-              aria-hidden
-              tabIndex={-1}
-            />
+          <Link variant="buttonAlt" href="https://github.com/Yoelio" isExternal aria-label="GitHub">
+            <FaGithub size={20} color={buttonIconColor} />
           </Link>
           <Button
-            variant="secondary"
-            boxShadow="md"
+            variant="alt"
             iconSpacing={0}
             leftIcon={
-              colorMode === "light" ? (
-                <FaMoon size={20} color={buttonIconColor} />
+              colorMode === "dark" ? (
+                <FaSun size={20} color={colorModeIconColor} />
               ) : (
-                <FaSun size={20} color={buttonIconColor} />
+                <FaMoon size={20} color={colorModeIconColor} />
               )
             }
             onClick={toggleColorMode}
@@ -60,7 +49,14 @@ const Home: NextPage = () => {
           />
         </HeaderGroup>
       </Header>
-      <PillPity as="main" patFill={accentColor} pattern="topography" bgColor="transparent" patOpacity={0.3}>
+      <PillPity
+        as="main"
+        patFill={accentColor}
+        pattern="topography"
+        bgColor="transparent"
+        minH="100vh"
+        patOpacity={0.3}
+      >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
           <Text fontWeight="normal">Hey there! I&apos;m-</Text>
           <Flex as="h1" textStyle="h1" direction="column" mt={2}>
@@ -78,6 +74,38 @@ const Home: NextPage = () => {
               quaerat.
             </Text>
           </Text>
+          <Stack mt={4} spacing={4} direction={["column", "row"]}>
+            <Link
+              variant="button"
+              href="https://linkedin.com/in/yoel-k"
+              isExternal
+              placeContent="center"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={20} color={buttonIconColor} />
+              <Text>LinkedIn</Text>
+            </Link>
+            <Link
+              variant="button"
+              href="https://github.com/Yoelio"
+              isExternal
+              placeContent="center"
+              aria-label="GitHub"
+            >
+              <FaGithub size={20} color={buttonIconColor} />
+              <Text>GitHub</Text>
+            </Link>
+            <Link
+              variant="button"
+              href="mailto:ykiflezghi@gmail.com"
+              isExternal
+              placeContent="center"
+              aria-label="GitHub"
+            >
+              <FaEnvelope size={20} color={buttonIconColor} />
+              <Text>Email</Text>
+            </Link>
+          </Stack>
         </Flex>
         <Flex
           as="section"

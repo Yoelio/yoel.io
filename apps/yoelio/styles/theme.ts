@@ -1,15 +1,17 @@
 import { extendTheme } from "@chakra-ui/react";
+import { theme as _theme } from "@chakra-ui/theme";
+import { mode } from "@chakra-ui/theme-tools";
 import { HeaderStyle as Header, CardStyle as Card } from "@yoelio/components";
 
 const theme = extendTheme({
   config: {
-    initialColorMode: "light",
-    useSystemColorMode: true,
+    initialColorMode: "dark",
+    useSystemColorMode: false,
   },
   styles: {
     global: (props) => ({
-      body: {
-        backgroundColor: props.colorMode === "dark" ? "base.03" : "base.3",
+      "html, body": {
+        backgroundColor: mode("base.3", "base.03")(props),
       },
     }),
   },
@@ -60,11 +62,34 @@ const theme = extendTheme({
   components: {
     Button: {
       baseStyle: (props) => ({
-        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+        bg: mode("base.2", "base.02")(props),
+        boxShadow: "md",
       }),
       variants: {
-        secondary: (props) => ({
-          bg: props.colorMode === "dark" ? "base.03" : "base.3",
+        alt: (props) => ({
+          bg: mode("base.3", "base.03")(props),
+          boxShadow: "md",
+        }),
+      },
+    },
+    Link: {
+      variants: {
+        button: (props) => ({
+          ..._theme.components.Button.baseStyle,
+          p: 4,
+          display: "flex",
+          gridGap: 4,
+          boxShadow: "md",
+          bg: mode("base.2", "base.02")(props),
+        }),
+        buttonAlt: (props) => ({
+          ..._theme.components.Button.baseStyle,
+          px: 4,
+          py: 2.5,
+          display: "flex",
+          gridGap: 4,
+          boxShadow: "md",
+          bg: mode("base.3", "base.03")(props),
         }),
       },
     },
@@ -90,11 +115,6 @@ const theme = extendTheme({
       baseStyle: (props) => ({
         ...Card.baseStyle,
         bg: props.colorMode === "dark" ? "base.02" : "base.2",
-      }),
-    },
-    PillPity: {
-      baseStyle: (props) => ({
-        patFill: "cyan",
       }),
     },
   },
