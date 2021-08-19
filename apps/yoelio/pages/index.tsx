@@ -75,6 +75,7 @@ const Home: NextPage = () => {
         bgColor="transparent"
         minH="100vh"
         patOpacity={0.3}
+        pb={4}
       >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
           <Text fontWeight="normal">Hey there! I&apos;m-</Text>
@@ -180,7 +181,7 @@ const Home: NextPage = () => {
                   </ListItem>
                   <ListItem>
                     <Text>
-                      Utilized Google's internal Android concurrency framework to free up the main UI thread while
+                      Utilized Google&apos;s internal Android concurrency framework to free up the main UI thread while
                       parsing contact information payload.
                     </Text>
                   </ListItem>
@@ -193,6 +194,27 @@ const Home: NextPage = () => {
           </Stack>
         </Flex>
       </PillPity>
+      <Flex as="footer" direction="column" textAlign="center" m={12}>
+        <Text>
+          Designed and Developed by&nbsp;
+          <Text as="span">Yoel Kiflezghi</Text>.
+        </Text>
+        <Text>
+          Built with&nbsp;
+          <Link href="https://nextjs.org/" isExternal color={accentColor}>
+            Next.js
+          </Link>
+          &nbsp;&amp;&nbsp;
+          <Link href="https://chakra-ui.com/" isExternal color={accentColor}>
+            Chakra UI
+          </Link>
+          . Hosted on&nbsp;
+          <Link href="https://vercel.com/" isExternal color={accentColor}>
+            Vercel
+          </Link>
+          .
+        </Text>
+      </Flex>
     </>
   );
 };
