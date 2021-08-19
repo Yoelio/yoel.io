@@ -152,7 +152,7 @@ const Home: NextPage = () => {
                   </Text>
                 </Text>
                 <Text variant="secondary">Remote</Text>
-                <UnorderedList listStyleType="square" ml={6} mt={4}>
+                <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
                   <ListItem color={accentColor}>
                     <Text>
                       Designed and developed a global theming system for the entire Power Apps mobile app allowing for
@@ -183,7 +183,7 @@ const Home: NextPage = () => {
                   </Text>
                 </Text>
                 <Text variant="secondary">Sunnyvale, CA</Text>
-                <UnorderedList listStyleType="square" ml={6} mt={4}>
+                <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
                   <ListItem color={accentColor}>
                     <Text>
                       Built a consumer-facing feature enabling users to receive, edit, and save phone contacts sent over
@@ -205,7 +205,7 @@ const Home: NextPage = () => {
           </Stack>
         </Flex>
       </PillPity>
-      <Flex as="footer" direction="column" textAlign="center" textStyle="footer" my={12} mx={4}>
+      <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
         <Text textStyle="inherit">
           Designed and Developed by&nbsp;
           <Text as="span" textStyle="inherit">
