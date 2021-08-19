@@ -25,7 +25,14 @@ const Home: NextPage = () => {
       </Head>
       <Header>
         <HeaderGroup mx={4}>
-          <Text>Logo here</Text>
+          <Link href="https://www.yoel.io" _hover={{ textDecoration: "none" }}>
+            <Text textStyle="h2">
+              Y
+              <Text textStyle="inherit" as="span" color={accentColor}>
+                K
+              </Text>
+            </Text>
+          </Link>
         </HeaderGroup>
         <HeaderGroup mx={4}>
           <Link variant="buttonAlt" href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
@@ -100,7 +107,7 @@ const Home: NextPage = () => {
               href="mailto:ykiflezghi@gmail.com"
               isExternal
               placeContent="center"
-              aria-label="GitHub"
+              aria-label="Email"
             >
               <FaEnvelope size={20} color={buttonIconColor} />
               <Text>Email</Text>
