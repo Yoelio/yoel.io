@@ -69,6 +69,9 @@ const theme = extendTheme({
         alt: (props) => ({
           bg: mode("base.3", "base.03")(props),
           boxShadow: "md",
+          _hover: {
+            boxShadow: "xl",
+          },
         }),
       },
     },
@@ -81,15 +84,20 @@ const theme = extendTheme({
           gridGap: 4,
           boxShadow: "md",
           bg: mode("base.2", "base.02")(props),
+          _hover: {
+            bg: mode("base.3", "base.03")(props),
+            boxShadow: "xl",
+          },
         }),
-        buttonAlt: (props) => ({
+        buttonGhost: (props) => ({
           ..._theme.components.Button.baseStyle,
-          px: 4,
-          py: 2.5,
+          p: 4,
           display: "flex",
           gridGap: 4,
-          boxShadow: "md",
-          bg: mode("base.3", "base.03")(props),
+          _hover: {
+            bg: mode("base.3", "base.03")(props),
+            boxShadow: "xl",
+          },
         }),
       },
     },

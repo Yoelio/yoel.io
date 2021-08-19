@@ -1,3 +1,4 @@
+import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
       </Head>
       <Header>
         <HeaderGroup mx={4}>
-          <Link href="https://www.yoel.io" _hover={{ textDecoration: "none" }}>
+          <Link href="https://www.yoel.io" _hover={{ textDecoration: "none" }} aria-label="yoel.io">
             <Text textStyle="h2">
               Y
               <Text textStyle="inherit" as="span" color={accentColor}>
@@ -35,10 +36,10 @@ const Home: NextPage = () => {
           </Link>
         </HeaderGroup>
         <HeaderGroup mx={4}>
-          <Link variant="buttonAlt" href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
+          <Link variant="buttonGhost" py={2.5} href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
             <FaLinkedin size={20} color={buttonIconColor} />
           </Link>
-          <Link variant="buttonAlt" href="https://github.com/Yoelio" isExternal aria-label="GitHub">
+          <Link variant="buttonGhost" py={2.5} href="https://github.com/Yoelio" isExternal aria-label="GitHub">
             <FaGithub size={20} color={buttonIconColor} />
           </Link>
           <Button
