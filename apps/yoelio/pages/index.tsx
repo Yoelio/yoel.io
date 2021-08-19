@@ -2,7 +2,18 @@ import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { Box, Button, Flex, Link, Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Link,
+  ListItem,
+  Stack,
+  Text,
+  UnorderedList,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { FaSun, FaMoon, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 
@@ -78,8 +89,8 @@ const Home: NextPage = () => {
           <Text textStyle="headline" mt={8}>
             Software Engineer.
             <Text as="span" textStyle="inherit" variant="secondary">
-              &nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis praesentium molestias optio
-              quaerat.
+              &nbsp;A computer science undergrad with three summers of practical software engineering internship
+              experience.
             </Text>
           </Text>
           <Stack mt={4} spacing={4} direction={["column", "row"]}>
@@ -128,13 +139,55 @@ const Home: NextPage = () => {
           <Text textStyle="h2">Experience</Text>
           <Stack mt={4}>
             <Card>
-              <Box w={[16, 24, 36]} m={4}>
-                <Image src={microsoftPic} placeholder="blur" alt="Microsoft logo" />
+              <Box w={[16, 24, 36]} mt={2} ml={8}>
+                <Image src={microsoftPic} alt="Microsoft logo" />
+              </Box>
+              <Box px={8} py={4}>
+                <Text>Explore Intern</Text>
+                <Text variant="secondary">Remote</Text>
+                <UnorderedList>
+                  <ListItem>
+                    <Text>
+                      Designed and developed a global theming system for the entire Power Apps mobile app allowing for
+                      dynamic light/dark mode switching with minimal refactoring.
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text>
+                      Worked closely with UI designer to implement themes in accordance with design and accessibility
+                      specifications.
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text>Developed in React Native and TypeScript</Text>
+                  </ListItem>
+                </UnorderedList>
               </Box>
             </Card>
             <Card>
-              <Box w={[16, 24, 36]} m={4}>
-                <Image src={googlePic} placeholder="blur" alt="Google logo" />
+              <Box w={[16, 24, 36]} mt={4} ml={8}>
+                <Image src={googlePic} alt="Google logo" />
+              </Box>
+              <Box px={8} py={4}>
+                <Text>Engineering Practicum Intern</Text>
+                <Text variant="secondary">Remote</Text>
+                <UnorderedList>
+                  <ListItem>
+                    <Text>
+                      Built a consumer-facing feature enabling users to receive, edit, and save phone contacts sent over
+                      MMS in the Google Voice Android app.
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text>
+                      Utilized Google's internal Android concurrency framework to free up the main UI thread while
+                      parsing contact information payload.
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text>Developed in Java.</Text>
+                  </ListItem>
+                </UnorderedList>
               </Box>
             </Card>
           </Stack>
