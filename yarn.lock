@@ -898,6 +898,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@contentful/rich-text-react-renderer@npm:^15.2.0":
+  version: 15.2.0
+  resolution: "@contentful/rich-text-react-renderer@npm:15.2.0"
+  dependencies:
+    "@contentful/rich-text-types": ^15.1.0
+  peerDependencies:
+    react: ^16.8.6 || ^17.0.0
+    react-dom: ^16.8.6 || ^17.0.0
+  checksum: 1f7b73d139051ed6aa9f762e9132f656b9f0ca05e35403c837628a60ba4eb618e9a7ae548ca9d77ceba47c5090525772157579dd866d12273b33c1349559ae39
+  languageName: node
+  linkType: hard
+
+"@contentful/rich-text-types@npm:^15.1.0":
+  version: 15.1.0
+  resolution: "@contentful/rich-text-types@npm:15.1.0"
+  checksum: 6fd7faaf2db608e5d77d0a073cd3b8f18ce0fafb14ee48867a1ce6634e3d0d39fbf5336c08ebe6f8aae18c0a1fff5ebe1a4be41e11b3bab5224728b3f131e0bf
+  languageName: node
+  linkType: hard
+
 "@emotion/babel-plugin@npm:^11.3.0":
   version: 11.3.0
   resolution: "@emotion/babel-plugin@npm:11.3.0"
@@ -2464,6 +2483,7 @@ __metadata:
   resolution: "@yoelio/yoel.io@workspace:apps/yoelio"
   dependencies:
     "@chakra-ui/react": ^1.6.6
+    "@contentful/rich-text-react-renderer": ^15.2.0
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@types/react": 17.0.17
@@ -2471,6 +2491,7 @@ __metadata:
     eslint: 7.32.0
     eslint-config-next: 11.1.0
     framer-motion: ^4
+    graphql: ^15.5.1
     graphql-request: ^3.5.0
     next: 11.1.0
     pill-pity: ^0.2.2
@@ -5124,6 +5145,13 @@ fsevents@~2.3.1:
   peerDependencies:
     graphql: 14.x || 15.x
   checksum: ec7b6c9b72f8a17c1d3ba005062b9b79259f0eaa4b040cdc69bc7f62bf7eb8060de984ce1d8d726961bb3629be8dbd0b9dcf2db51acc00e8c7f34f927f00b821
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^15.5.1":
+  version: 15.5.1
+  resolution: "graphql@npm:15.5.1"
+  checksum: 7e45ae27021e5bafd2a3ce557e708606ff28504aae705654764fa6239b0151d014a90cbd4c68300f4f95a9074820aaee9b1f25b560ff089c8db0b49563e34080
   languageName: node
   linkType: hard
 

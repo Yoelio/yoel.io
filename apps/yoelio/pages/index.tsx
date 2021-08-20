@@ -1,5 +1,5 @@
 import React from "react";
-import type { NextPage } from "next";
+import type { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import {
@@ -15,22 +15,50 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-
 import { FaSun, FaMoon, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { PillPity } from "pill-pity";
+import { GraphQLClient } from "graphql-request";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { Options, documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Card, Header, HeaderGroup } from "@yoelio/components";
-import google from "../public/google.svg";
-import microsoft from "../public/microsoft.svg";
+import Query from "../contentful/query";
 import theme from "../styles/theme";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ landingPage: any }> = (props) => {
+  const landingPage = props.landingPage;
   const { colors } = theme;
   const { colorMode, toggleColorMode } = useColorMode();
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
   const colorModeIconColor = useColorModeValue(colors.violet, colors.yellow);
   const accentColor = useColorModeValue("yellow", "cyan");
   const dividerColor = useColorModeValue("base.00", "base.0");
+  /* eslint-disable react/display-name */
+  const options: Options = {
+    renderMark: {
+      [MARKS.BOLD]: (text) => (
+        <Text as="span" fontWeight="bold">
+          {text}
+        </Text>
+      ),
+    },
+    renderNode: {
+      [BLOCKS.HEADING_3]: (_, children) => (
+        <Text as="h3" textStyle="h3">
+          {children}
+        </Text>
+      ),
+      [BLOCKS.PARAGRAPH]: (_, children) => <Text>{children}</Text>,
+      [BLOCKS.UL_LIST]: (_, children) => (
+        <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
+          {children}
+        </UnorderedList>
+      ),
+      [BLOCKS.LIST_ITEM]: (_, children) => <ListItem color={accentColor}>{children}</ListItem>,
+    },
+  };
+  /* eslint-enable react/display-name */
+
   return (
     <>
       <Head>
@@ -165,84 +193,32 @@ const Home: NextPage = () => {
         >
           <Text textStyle="h2">Experience</Text>
           <Stack mt={4}>
-            <Card py={4} px={4}>
-              <Box w={6} mb={4}>
-                <Image src={microsoft} alt="Microsoft logo" width="100%" height="100%" />
-              </Box>
-              <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
-                <Box>
-                  <Text variant="secondary">Remote · Summer 2021</Text>
-                  <Text textStyle="h3">
-                    Software Engineer Intern at&nbsp;
-                    <Text as="span" fontWeight="bold" textStyle="inherit">
-                      Microsoft
-                    </Text>
-                  </Text>
-                  <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
-                    <ListItem color={accentColor}>
-                      <Text>TBD</Text>
-                    </ListItem>
-                  </UnorderedList>
+            {landingPage.companiesCollection.items.map((company: any, index: number) => (
+              <Card py={4} px={4} key={index}>
+                <Box w={6} mb={4}>
+                  <Image src={company.companyLogoDesktop.url} alt="Microsoft logo" width="100%" height="100%" />
                 </Box>
-                <Box>
-                  <Text variant="secondary">Remote · Summer 2020</Text>
-                  <Text textStyle="h3">
-                    Explore Intern at&nbsp;
-                    <Text as="span" fontWeight="bold" textStyle="inherit">
-                      Microsoft
-                    </Text>
-                  </Text>
-                  <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
-                    <ListItem color={accentColor}>
-                      <Text>
-                        Designed and developed a global theming system for the entire Power Apps mobile app allowing for
-                        dynamic light/dark mode switching with minimal refactoring.
+                <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
+                  {company.experiencesCollection.items.map((experience: any, index: number) => (
+                    <Box key={index}>
+                      <Text variant="secondary">
+                        {experience.location} ·&nbsp;
+                        {new Date(experience.startDate).toLocaleDateString("en-US", {
+                          month: "short",
+                          year: "numeric",
+                        })}
+                        &nbsp;-&nbsp;
+                        {new Date(experience.endDate).toLocaleDateString("en-US", {
+                          month: "short",
+                          year: "numeric",
+                        })}
                       </Text>
-                    </ListItem>
-                    <ListItem color={accentColor}>
-                      <Text>
-                        Worked closely with UI designer to implement themes in accordance with design and accessibility
-                        specifications.
-                      </Text>
-                    </ListItem>
-                    <ListItem color={accentColor}>
-                      <Text>Developed in React Native and TypeScript.</Text>
-                    </ListItem>
-                  </UnorderedList>
-                </Box>
-              </Stack>
-            </Card>
-            <Card py={4} px={4}>
-              <Box w={6} mb={4}>
-                <Image src={google} alt="Google logo" width="100%" height="100%" />
-              </Box>
-              <Box>
-                <Text variant="secondary">Sunnyvale, CA · Summer 2019</Text>
-                <Text textStyle="h3">
-                  Engineering Practicum Intern at&nbsp;
-                  <Text as="span" fontWeight="extrabold" textStyle="inherit">
-                    Google
-                  </Text>
-                </Text>
-                <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
-                  <ListItem color={accentColor}>
-                    <Text>
-                      Built a consumer-facing feature enabling users to receive, edit, and save phone contacts sent over
-                      MMS in the Google Voice Android app.
-                    </Text>
-                  </ListItem>
-                  <ListItem color={accentColor}>
-                    <Text>
-                      Utilized Google&apos;s internal Android concurrency framework to free up the main UI thread while
-                      parsing contact information payload.
-                    </Text>
-                  </ListItem>
-                  <ListItem color={accentColor}>
-                    <Text>Developed in Java.</Text>
-                  </ListItem>
-                </UnorderedList>
-              </Box>
-            </Card>
+                      {documentToReactComponents(experience.description.json, options)}
+                    </Box>
+                  ))}
+                </Stack>
+              </Card>
+            ))}
           </Stack>
         </Flex>
       </PillPity>
@@ -273,5 +249,20 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps(context: NextPageContext) {
+  const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
+  const client = new GraphQLClient(endpoint, {
+    headers: {
+      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_KEY}`,
+    },
+  });
+  const data = await client.request(Query.landingPage);
+
+  return {
+    props: data,
+    revalidate: 1,
+  };
+}
 
 export default Home;

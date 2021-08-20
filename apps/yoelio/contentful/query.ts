@@ -1,12 +1,9 @@
 import { gql } from "graphql-request";
 
 export default {
-  query: gql`
+  landingPage: gql`
     query landingPageEntryQuery {
-      landingPage(id: ${process.env.CONTENTFUL_LANDING_PAGE_ID}) {
-        sys {
-          id
-        }
+      landingPage(id: "${process.env.CONTENTFUL_LANDING_PAGE_ID}") {
         companiesCollection {
           items {
             companyLogoMobile {

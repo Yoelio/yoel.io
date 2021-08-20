@@ -11,6 +11,9 @@ module.exports = {
       },
     ],
   },
+  images: {
+    domains: ["images.ctfassets.net"],
+  },
   experimental: {
     externalDir: true,
   },
