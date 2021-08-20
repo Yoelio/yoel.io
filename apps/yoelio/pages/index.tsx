@@ -253,11 +253,15 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   );
 };
 
-export async function getStaticProps(context: NextPageContext) {
+export async function getStaticProps() {
   const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
   const client = new GraphQLClient(endpoint, {
     headers: {
-      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_KEY}`,
+      Authorization: `Bearer ${
+        process.env.NODE_ENV === "development"
+          ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+          : process.env.CONTENTFUL_ACCESS_TOKEN
+      }`,
     },
   });
   const data = await client.request(Query.landingPage);
