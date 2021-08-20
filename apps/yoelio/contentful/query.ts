@@ -24,6 +24,14 @@ export default {
             }
           }
         }
+        aboutMe {
+          description {
+            json
+          }
+          me {
+            url
+          }
+        }
       }
     }
   `,

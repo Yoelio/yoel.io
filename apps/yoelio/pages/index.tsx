@@ -1,12 +1,12 @@
 import React from "react";
-import type { NextPage, NextPageContext } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import {
   Box,
   Button,
   Divider,
   Flex,
+  Image,
   Link,
   ListItem,
   Stack,
@@ -43,6 +43,11 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
       ),
     },
     renderNode: {
+      [BLOCKS.HEADING_2]: (_, children) => (
+        <Text as="h2" textStyle="h2">
+          {children}
+        </Text>
+      ),
       [BLOCKS.HEADING_3]: (_, children) => (
         <Text as="h3" textStyle="h3">
           {children}
@@ -182,22 +187,13 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Link>
           </Stack>
         </Flex>
-        <Flex
-          as="section"
-          id="experience"
-          maxW="5xl"
-          mx="auto"
-          px={4}
-          mt={[12, 48]}
-          direction="column"
-          justifyContent="center"
-        >
+        <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
           <Text as="h2" textStyle="h2">
             Experience
           </Text>
           <Stack mt={4}>
             {landingPage.companiesCollection.items.map((company: any, index: number) => (
-              <Card py={4} px={4} key={index}>
+              <Card p={4} key={index}>
                 <Box w={6} mb={4}>
                   <Image src={company.companyLogoDesktop.url} alt="Microsoft logo" width="100%" height="100%" />
                 </Box>
@@ -223,6 +219,20 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               </Card>
             ))}
           </Stack>
+        </Flex>
+        <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+          <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
+            <Box experimental_spaceY={4}>
+              {documentToReactComponents(landingPage.aboutMe.description.json, options)}
+            </Box>
+            <Image
+              src={landingPage.aboutMe.me.url}
+              borderRadius="full"
+              boxSize={["15em", "xs"]}
+              objectFit="cover"
+              alt="picture of Yoel"
+            />
+          </Flex>
         </Flex>
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
