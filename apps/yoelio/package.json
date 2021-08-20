@@ -14,6 +14,7 @@
     "@emotion/styled": "^11",
     "@yoelio/components": "1.0.0",
     "framer-motion": "^4",
+    "graphql-request": "^3.5.0",
     "next": "11.1.0",
     "pill-pity": "^0.2.2",
     "react": "17.0.2",
