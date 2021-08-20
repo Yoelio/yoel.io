@@ -62,6 +62,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex" />
         <title>Yoel Kiflezghi</title>
         <meta name="title" content="Yoel Kiflezghi" />
         <meta name="description" content="A software engineer from Cary, North Carolina" />
@@ -191,7 +192,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           direction="column"
           justifyContent="center"
         >
-          <Text textStyle="h2">Experience</Text>
+          <Text as="h2" textStyle="h2">
+            Experience
+          </Text>
           <Stack mt={4}>
             {landingPage.companiesCollection.items.map((company: any, index: number) => (
               <Card py={4} px={4} key={index}>
