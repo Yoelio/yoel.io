@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   Box,
   Button,
+  Divider,
   Flex,
   Link,
   ListItem,
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
   const colorModeIconColor = useColorModeValue(colors.violet, colors.yellow);
   const accentColor = useColorModeValue("yellow", "cyan");
+  const dividerColor = useColorModeValue("base.00", "base.0");
   return (
     <>
       <Head>
@@ -39,13 +41,17 @@ const Home: NextPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yoel.io/" />
         <meta property="og:title" content="Yoel Kiflezghi" />
+        <meta property="og:site_name" content="yoel.io" />
         <meta property="og:description" content="A software engineer from Cary, North Carolina" />
         <meta
           property="og:image"
           content="https://images.ctfassets.net/rox7jrv18wsf/3rAjNdYSe86U8s6ohYdufj/33c9fe8d7f9e3f4c52dc7cc5ef81fef4/Yoel.jpeg?h=250"
         />
 
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:card"
+          content="https://images.ctfassets.net/rox7jrv18wsf/3rAjNdYSe86U8s6ohYdufj/33c9fe8d7f9e3f4c52dc7cc5ef81fef4/Yoel.jpeg?h=250"
+        />
         <meta property="twitter:url" content="https://yoel.io/" />
         <meta property="twitter:title" content="Yoel Kiflezghi" />
         <meta property="twitter:description" content="A software engineer from Cary, North Carolina" />
@@ -160,49 +166,65 @@ const Home: NextPage = () => {
           <Text textStyle="h2">Experience</Text>
           <Stack mt={4}>
             <Card py={4} px={4}>
-              <Box w={6}>
+              <Box w={6} mb={4}>
                 <Image src={microsoft} alt="Microsoft logo" width="100%" height="100%" />
               </Box>
-              <Box>
-                <Text mt={4} textStyle="h3">
-                  Explore Intern at&nbsp;
-                  <Text as="span" fontWeight="bold" textStyle="inherit">
-                    Microsoft
+              <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
+                <Box>
+                  <Text variant="secondary">Remote · Summer 2021</Text>
+                  <Text textStyle="h3">
+                    Software Engineer Intern at&nbsp;
+                    <Text as="span" fontWeight="bold" textStyle="inherit">
+                      Microsoft
+                    </Text>
                   </Text>
-                </Text>
-                <Text variant="secondary">Remote</Text>
-                <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
-                  <ListItem color={accentColor}>
-                    <Text>
-                      Designed and developed a global theming system for the entire Power Apps mobile app allowing for
-                      dynamic light/dark mode switching with minimal refactoring.
+                  <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
+                    <ListItem color={accentColor}>
+                      <Text>TBD</Text>
+                    </ListItem>
+                  </UnorderedList>
+                </Box>
+                <Box>
+                  <Text variant="secondary">Remote · Summer 2020</Text>
+                  <Text textStyle="h3">
+                    Explore Intern at&nbsp;
+                    <Text as="span" fontWeight="bold" textStyle="inherit">
+                      Microsoft
                     </Text>
-                  </ListItem>
-                  <ListItem color={accentColor}>
-                    <Text>
-                      Worked closely with UI designer to implement themes in accordance with design and accessibility
-                      specifications.
-                    </Text>
-                  </ListItem>
-                  <ListItem color={accentColor}>
-                    <Text>Developed in React Native and TypeScript.</Text>
-                  </ListItem>
-                </UnorderedList>
-              </Box>
+                  </Text>
+                  <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
+                    <ListItem color={accentColor}>
+                      <Text>
+                        Designed and developed a global theming system for the entire Power Apps mobile app allowing for
+                        dynamic light/dark mode switching with minimal refactoring.
+                      </Text>
+                    </ListItem>
+                    <ListItem color={accentColor}>
+                      <Text>
+                        Worked closely with UI designer to implement themes in accordance with design and accessibility
+                        specifications.
+                      </Text>
+                    </ListItem>
+                    <ListItem color={accentColor}>
+                      <Text>Developed in React Native and TypeScript.</Text>
+                    </ListItem>
+                  </UnorderedList>
+                </Box>
+              </Stack>
             </Card>
             <Card py={4} px={4}>
-              <Box w={6}>
+              <Box w={6} mb={4}>
                 <Image src={google} alt="Google logo" width="100%" height="100%" />
               </Box>
               <Box>
-                <Text mt={4} textStyle="h3">
+                <Text variant="secondary">Sunnyvale, CA · Summer 2019</Text>
+                <Text textStyle="h3">
                   Engineering Practicum Intern at&nbsp;
                   <Text as="span" fontWeight="extrabold" textStyle="inherit">
                     Google
                   </Text>
                 </Text>
-                <Text variant="secondary">Sunnyvale, CA</Text>
-                <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
+                <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
                   <ListItem color={accentColor}>
                     <Text>
                       Built a consumer-facing feature enabling users to receive, edit, and save phone contacts sent over
