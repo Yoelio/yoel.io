@@ -4,71 +4,34 @@ import Head from "next/head";
 import {
   Box,
   Button,
-  Code,
   Divider,
   Flex,
   Image,
   Link,
-  ListItem,
   Stack,
   Text,
-  UnorderedList,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaSun, FaMoon, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import * as SimpleIcons from "react-icons/si";
+import { FaSun, FaMoon, FaEnvelope } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { Options, documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Card, Header, HeaderGroup } from "@yoelio/components";
 import Query from "../contentful/query";
 import theme from "../styles/theme";
+import { renderOptions } from "../contentful/renderOptions";
 
 const Home: NextPage<{ landingPage: any }> = (props) => {
   const landingPage = props.landingPage;
   const { colors } = theme;
   const { colorMode, toggleColorMode } = useColorMode();
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
-  const colorModeIconColor = useColorModeValue(colors.violet, colors.yellow);
-  const accentColor = useColorModeValue("yellow", "cyan");
+  const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow);
+  const accentColor = useColorModeValue("solYellow", "solCyan");
   const dividerColor = useColorModeValue("base.00", "base.0");
-  /* eslint-disable react/display-name */
-  const options: Options = {
-    renderMark: {
-      [MARKS.CODE]: (text) => (
-        <Code colorScheme="orange" fontWeight="bold" borderRadius="md">
-          {text}
-        </Code>
-      ),
-      [MARKS.BOLD]: (text) => (
-        <Text as="span" fontWeight="bold">
-          {text}
-        </Text>
-      ),
-    },
-    renderNode: {
-      [BLOCKS.HEADING_2]: (_, children) => (
-        <Text as="h2" textStyle="h2">
-          {children}
-        </Text>
-      ),
-      [BLOCKS.HEADING_3]: (_, children) => (
-        <Text as="h3" textStyle="h3">
-          {children}
-        </Text>
-      ),
-      [BLOCKS.PARAGRAPH]: (_, children) => <Text>{children}</Text>,
-      [BLOCKS.UL_LIST]: (_, children) => (
-        <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
-          {children}
-        </UnorderedList>
-      ),
-      [BLOCKS.LIST_ITEM]: (_, children) => <ListItem color={accentColor}>{children}</ListItem>,
-    },
-  };
-  /* eslint-enable react/display-name */
 
   return (
     <>
@@ -113,11 +76,11 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </Link>
         </HeaderGroup>
         <HeaderGroup mx={4}>
-          <Link variant="buttonGhost" py={2.5} href="https://linkedin.com/in/yoel-k" isExternal aria-label="LinkedIn">
-            <FaLinkedin size={20} color={buttonIconColor} />
+          <Link variant="buttonGhost" py={2.5} href="https://linkedin.com/in/yoel-k" isExternal>
+            <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
           </Link>
-          <Link variant="buttonGhost" py={2.5} href="https://github.com/Yoelio" isExternal aria-label="GitHub">
-            <FaGithub size={20} color={buttonIconColor} />
+          <Link variant="buttonGhost" py={2.5} href="https://github.com/Yoelio" isExternal>
+            <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
           </Link>
           <Button
             variant="alt"
@@ -161,24 +124,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Text>
           </Text>
           <Stack mt={4} spacing={4} direction={["column", "row"]}>
-            <Link
-              variant="button"
-              href="https://linkedin.com/in/yoel-k"
-              isExternal
-              placeContent="center"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin size={20} color={buttonIconColor} />
+            <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
+              <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
               <Text>LinkedIn</Text>
             </Link>
-            <Link
-              variant="button"
-              href="https://github.com/Yoelio"
-              isExternal
-              placeContent="center"
-              aria-label="GitHub"
-            >
-              <FaGithub size={20} color={buttonIconColor} />
+            <Link variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
+              <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
               <Text>GitHub</Text>
             </Link>
             <Link
@@ -218,7 +169,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                           year: "numeric",
                         })}
                       </Text>
-                      {documentToReactComponents(experience.description.json, options)}
+                      {documentToReactComponents(
+                        experience.description.json,
+                        renderOptions(experience.description.links, accentColor)
+                      )}
                     </Box>
                   ))}
                 </Stack>
@@ -229,7 +183,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
           <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
             <Box experimental_spaceY={4}>
-              {documentToReactComponents(landingPage.aboutMe.description.json, options)}
+              {documentToReactComponents(
+                landingPage.aboutMe.description.json,
+                renderOptions(landingPage.aboutMe.description.links, accentColor)
+              )}
             </Box>
             <Image
               src={landingPage.aboutMe.me.url}
