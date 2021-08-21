@@ -274,7 +274,8 @@ export async function getStaticProps() {
       }`,
     },
   });
-  const data = await client.request(Query.landingPage);
+  // request data with provided query. In development, the content is delivered from the Contentful Preview API
+  const data = await client.request(Query.landingPage, { preview: process.env.NODE_ENV === "development" });
 
   return {
     props: data,
