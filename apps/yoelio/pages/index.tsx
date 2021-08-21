@@ -4,6 +4,7 @@ import Head from "next/head";
 import {
   Box,
   Button,
+  Code,
   Divider,
   Flex,
   Image,
@@ -36,6 +37,11 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   /* eslint-disable react/display-name */
   const options: Options = {
     renderMark: {
+      [MARKS.CODE]: (text) => (
+        <Code colorScheme="orange" fontWeight="bold" borderRadius="md">
+          {text}
+        </Code>
+      ),
       [MARKS.BOLD]: (text) => (
         <Text as="span" fontWeight="bold">
           {text}

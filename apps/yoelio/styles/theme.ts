@@ -31,7 +31,6 @@ const theme = extendTheme({
       3: "#fdf6e3",
     },
     yellow: "#b58900",
-    orange: "#cb4b16",
     red: "#dc322f",
     magenta: "#d33682",
     violet: "#6c71c4",
