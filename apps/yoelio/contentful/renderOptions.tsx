@@ -40,7 +40,7 @@ export function renderOptions(links: any, accentColor: string): Options {
       ),
       [BLOCKS.PARAGRAPH]: (_, children) => <Text>{children}</Text>,
       [BLOCKS.UL_LIST]: (_, children) => (
-        <UnorderedList spacing={1} listStyleType="square" ml={6} mt={2}>
+        <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
           {children}
         </UnorderedList>
       ),
@@ -55,7 +55,7 @@ export function renderOptions(links: any, accentColor: string): Options {
           const { name, iconId, color } = entry as { name: string; iconId: IconType; color: string };
 
           return (
-            <Tag colorScheme={color} mr={2} my={2} size="lg">
+            <Tag colorScheme={color} mr={2} mt={2}>
               {/* @ts-ignore*/}
               <TagLeftIcon boxSize="12px" as={SimpleIcons[iconId]} aria-label={name} />
               <TagLabel>{name}</TagLabel>
