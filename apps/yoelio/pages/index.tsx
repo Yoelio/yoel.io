@@ -4,6 +4,7 @@ import Head from "next/head";
 import {
   Box,
   Button,
+  Circle,
   Divider,
   Flex,
   Image,
@@ -123,7 +124,20 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               experience.
             </Text>
           </Text>
-          <Stack mt={4} spacing={4} direction={["column", "row"]}>
+          <Stack mt={4} spacing={1}>
+            <Flex gridGap={3}>
+              <Text textStyle="h3">📍</Text>
+              <Text textStyle="h3">Cary, NC</Text>
+            </Flex>
+            <Flex gridGap={3}>
+              <Text textStyle="h3">🎓</Text>
+              <Box display="inline-block">
+                <Text textStyle="h3">B.Sc. Computer Science</Text>
+                <Text variant="secondary">University of North Carolina at Charlotte</Text>
+              </Box>
+            </Flex>
+          </Stack>
+          <Stack mt={8} spacing={4} direction={["column", "row"]}>
             <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
               <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
               <Text>LinkedIn</Text>
