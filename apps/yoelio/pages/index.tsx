@@ -126,7 +126,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </Text>
           <Stack mt={4} spacing={1}>
             <Flex gridGap={3}>
-              <Text textStyle="h3">📍</Text>
+              <Text textStyle="h3">🌎</Text>
               <Text textStyle="h3">Cary, NC</Text>
             </Flex>
             <Flex gridGap={3}>
