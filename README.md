@@ -66,5 +66,7 @@ yarn start:yoel.io
 
 ## Further reading
 Chakra UI: https://chakra-ui.com/docs/getting-started
+
 GraphQL: https://graphql.org/learn/
+
 Contentful concepts: https://www.contentful.com/developers/docs/concepts/
