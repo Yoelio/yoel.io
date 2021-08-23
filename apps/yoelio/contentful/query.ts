@@ -56,7 +56,19 @@ export default {
           url
         }
       }
+      seo {
+        title
+        description
+        image {
+          url(transform: {
+            quality: 75
+          })
+        }
+        url
+        siteName
+        keywords
+        noindex
+      }
     }
-    }
-  `,
+  }`,
 };

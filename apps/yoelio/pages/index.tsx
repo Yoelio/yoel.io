@@ -37,37 +37,28 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   return (
     <>
       <Head>
-        <meta name="robots" content="noindex" />
-        <title>Yoel Kiflezghi</title>
-        <meta name="title" content="Yoel Kiflezghi" />
-        <meta name="description" content="A software engineer from Cary, North Carolina" />
+        <title>{landingPage.seo.title}</title>
+        <meta name="title" content={landingPage.seo.title} />
+        <meta name="description" content={landingPage.seo.description} />
+        {landingPage.seo.noindex && <meta name="robots" content="noindex" />}
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoel.io/" />
-        <meta property="og:title" content="Yoel Kiflezghi" />
-        <meta property="og:site_name" content="yoel.io" />
-        <meta property="og:description" content="A software engineer from Cary, North Carolina" />
-        <meta
-          property="og:image"
-          content="https://images.ctfassets.net/rox7jrv18wsf/3rAjNdYSe86U8s6ohYdufj/33c9fe8d7f9e3f4c52dc7cc5ef81fef4/Yoel.jpeg?h=250"
-        />
+        <meta property="og:url" content={landingPage.seo.url} />
+        <meta property="og:title" content={landingPage.seo.title} />
+        <meta property="og:site_name" content={landingPage.seo.siteName} />
+        <meta property="og:description" content={landingPage.seo.description} />
+        <meta property="og:image" content={landingPage.seo.image.url} />
 
-        <meta
-          property="twitter:card"
-          content="https://images.ctfassets.net/rox7jrv18wsf/3rAjNdYSe86U8s6ohYdufj/33c9fe8d7f9e3f4c52dc7cc5ef81fef4/Yoel.jpeg?h=250"
-        />
-        <meta property="twitter:url" content="https://yoel.io/" />
-        <meta property="twitter:title" content="Yoel Kiflezghi" />
-        <meta property="twitter:description" content="A software engineer from Cary, North Carolina" />
-        <meta
-          property="twitter:image"
-          content="https://images.ctfassets.net/rox7jrv18wsf/3rAjNdYSe86U8s6ohYdufj/33c9fe8d7f9e3f4c52dc7cc5ef81fef4/Yoel.jpeg?h=250"
-        />
+        <meta property="twitter:card" content={landingPage.seo.image.url} />
+        <meta property="twitter:url" content={landingPage.seo.url} />
+        <meta property="twitter:title" content={landingPage.seo.title} />
+        <meta property="twitter:description" content={landingPage.seo.description} />
+        <meta property="twitter:image" content={landingPage.seo.image.url} />
         <link rel="icon" href="/yoelio_logo.png" />
       </Head>
       <Header zIndex="banner">
         <HeaderGroup mx={4}>
-          <Link href="https://www.yoel.io" _hover={{ textDecoration: "none" }} aria-label="yoel.io">
+          <Link href={landingPage.seo.url} _hover={{ textDecoration: "none" }} aria-label={landingPage.seo.siteName}>
             <Text textStyle="h2">
               Y
               <Text textStyle="inherit" as="span" color={accentColor}>
