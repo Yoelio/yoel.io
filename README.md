@@ -9,11 +9,13 @@ A monorepo containing the source code for the `yoel.io` web app and custom Chakr
 
 ## Setup
 
-The `yoel.io` web app consumes data from a headless CMS called [Contentful](https://www.contentful.com/developers/docs/). Without a Contentful Delivery API and a Preview API token, this project cannot be built. I've provided a content model export JSON `contentful_yoelio_content_model.json` that can be imported into your own Contentful space with the [Contentful CLI](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/). A successful import should leave you with a content model like this:
+The `yoel.io` web app consumes data from a headless CMS called [Contentful](https://www.contentful.com/developers/docs/). Without a Contentful Delivery API and a Preview API token, this project cannot be built. I've provided [a content model export JSON](https://github.com/Yoelio/yoel.io/blob/main/apps/yoelio/contentful_yoelio_content_model.json) that can be imported into your own Contentful space with the [Contentful CLI](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/). A successful import should leave you with a content model like this:
 ![Contentful content model](https://imgur.com/PXv4HKx.png)
 
+
 Begin by adding an entry of the `Landing Page` content type.
-![Example landing page entry](https://imgur.com/TqlLtgL.png)
+
+<img src="https://imgur.com/TqlLtgL.png" alt="Example landing page entry" width="50%"/>
 
 ### Environment variables
 
@@ -61,3 +63,8 @@ Run the production build with:
 ```bash
 yarn start:yoel.io
 ```
+
+## Further reading
+Chakra UI: https://chakra-ui.com/docs/getting-started
+GraphQL: https://graphql.org/learn/
+Contentful concepts: https://www.contentful.com/developers/docs/concepts/
