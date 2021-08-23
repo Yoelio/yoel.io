@@ -100,7 +100,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
       >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
           <Text fontWeight="normal">Hey there! I&apos;m-</Text>
-          <Flex as="h1" textStyle="h1" direction="column" mt={2}>
+          <Flex as="h1" textStyle="h1" direction="column" mt={2} mb={4}>
             <Text as="span" textStyle="inherit">
               Yoel
             </Text>
@@ -108,25 +108,26 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               Kiflezghi.
             </Text>
           </Flex>
-          <Text textStyle="headline" mt={8}>
-            Software Engineer.
-            <Text as="span" textStyle="inherit" variant="secondary">
-              &nbsp;A computer science undergrad with three summers of practical software engineering internship
-              experience.
-            </Text>
-          </Text>
+          {documentToReactComponents(
+            landingPage.hero.headline.json,
+            renderOptions(landingPage.hero.headline.links, accentColor, landingPage.hero.__typename)
+          )}
           <Stack mt={4} spacing={1}>
             <Flex gridGap={3}>
-              <Text textStyle="h3">🌎</Text>
-              <Text textStyle="h3">Cary, NC</Text>
+              <Text textStyle="headline">📍</Text>
+              <Text textStyle="h3">{landingPage.hero.location}</Text>
             </Flex>
-            <Flex gridGap={3}>
-              <Text textStyle="h3">🎓</Text>
-              <Box display="inline-block">
-                <Text textStyle="h3">B.Sc. Computer Science</Text>
-                <Text variant="secondary">University of North Carolina at Charlotte</Text>
-              </Box>
-            </Flex>
+            <Stack>
+              {landingPage.hero.educationCollection.items.map((education: any) => (
+                <Flex gridGap={3} key={education.sys.id}>
+                  <Text textStyle="headline">🎓</Text>
+                  <Box display="inline-block">
+                    <Text textStyle="h3">{education.degree}</Text>
+                    <Text variant="secondary">{education.university}</Text>
+                  </Box>
+                </Flex>
+              ))}
+            </Stack>
           </Stack>
           <Stack mt={8} spacing={4} direction={["column", "row"]}>
             <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">

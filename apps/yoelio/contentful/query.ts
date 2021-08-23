@@ -7,6 +7,22 @@ export default {
       sys {
         id
       }
+      hero {
+        __typename
+        headline {
+          json
+        }
+        location
+        educationCollection {
+          items {
+            sys {
+              id
+            }
+            degree
+            university
+          }
+        }
+      }
       companiesCollection(limit: 20) {
         items {
           sys {

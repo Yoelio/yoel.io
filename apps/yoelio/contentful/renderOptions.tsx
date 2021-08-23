@@ -4,7 +4,7 @@ import { Code, ListItem, Tag, TagLabel, TagLeftIcon, Text, UnorderedList } from 
 import * as SimpleIcons from "react-icons/si";
 import { IconType } from "react-icons/lib";
 
-export function renderOptions(links: any, accentColor: string): Options {
+export function renderOptions(links: any, accentColor: string, typename?: string): Options {
   // create an entry map
   const entryMap = new Map();
   if (links)
@@ -21,11 +21,20 @@ export function renderOptions(links: any, accentColor: string): Options {
           {text}
         </Code>
       ),
-      [MARKS.BOLD]: (text) => (
-        <Text as="span" fontWeight="bold">
-          {text}
-        </Text>
-      ),
+      [MARKS.BOLD]: (text) => {
+        if (typename === "Hero") {
+          return (
+            <Text as="span" textStyle="headline">
+              {text}
+            </Text>
+          );
+        }
+        return (
+          <Text as="span" fontWeight="bold">
+            {text}
+          </Text>
+        );
+      },
     },
     renderNode: {
       [BLOCKS.HEADING_2]: (_, children) => (
@@ -38,14 +47,21 @@ export function renderOptions(links: any, accentColor: string): Options {
           {children}
         </Text>
       ),
-      [BLOCKS.PARAGRAPH]: (_, children) => <Text>{children}</Text>,
+      [BLOCKS.PARAGRAPH]: (_, children) => {
+        if (typename === "Hero")
+          return (
+            <Text textStyle="headline" variant="secondary">
+              {children}
+            </Text>
+          );
+        return <Text>{children}</Text>;
+      },
       [BLOCKS.UL_LIST]: (_, children) => (
         <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
           {children}
         </UnorderedList>
       ),
       [BLOCKS.LIST_ITEM]: (_, children) => <ListItem color={accentColor}>{children}</ListItem>,
-      // other options...
       [INLINES.EMBEDDED_ENTRY]: (node, _) => {
         // find the entry in the entryMap by ID
         const entry = entryMap.get(node.data.target.sys.id);
