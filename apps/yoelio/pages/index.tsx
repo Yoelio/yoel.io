@@ -155,14 +155,14 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             Experience
           </Text>
           <Stack mt={4}>
-            {landingPage.companiesCollection.items.map((company: any, index: number) => (
-              <Card p={4} key={index}>
+            {landingPage.companiesCollection.items.map((company: any) => (
+              <Card p={4} key={company.sys.id}>
                 <Box w={6} mb={4}>
                   <Image src={company.companyLogoDesktop.url} alt="Microsoft logo" width="100%" height="100%" />
                 </Box>
                 <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
-                  {company.experiencesCollection.items.map((experience: any, index: number) => (
-                    <Box key={index}>
+                  {company.experiencesCollection.items.map((experience: any) => (
+                    <Box key={experience.sys.id}>
                       <Text variant="secondary">
                         {experience.location} ·&nbsp;
                         {new Date(experience.startDate).toLocaleDateString("en-US", {

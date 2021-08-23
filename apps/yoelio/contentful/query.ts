@@ -4,9 +4,6 @@ export default {
   landingPage: gql`
     query landingPageEntryQuery($preview: Boolean) {
       landingPage(id: "${process.env.CONTENTFUL_LANDING_PAGE_ID}", preview: $preview) {
-      sys {
-        id
-      }
       hero {
         __typename
         headline {
