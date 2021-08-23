@@ -23,15 +23,15 @@ Begin by adding an entry of the `Landing Page` content type.
 Include these environment variables in a `.env.local` file in `apps/yoelio`.
 
 ```
-CONTENTFUL_SPACE_ID=??? // Can be found in Contentful settings
-CONTENTFUL_LANDING_PAGE_ID=??? // The entry ID of the landing page content.
-CONTENTFUL_ACCESS_TOKEN=??? // Used in production
+CONTENTFUL_SPACE_ID=???             // Can be found in Contentful settings
+CONTENTFUL_LANDING_PAGE_ID=???      // The entry ID of the landing page content.
+CONTENTFUL_ACCESS_TOKEN=???         // Used in production
 CONTENTFUL_PREVIEW_ACCESS_TOKEN=??? // Used in development
 ```
 
 Learn more about Next.js [environment variables here](https://nextjs.org/docs/basic-features/environment-variables).
 
-Install yarn globally:
+Install `yarn` globally:
 
 ```bash
 npm install -g yarn
