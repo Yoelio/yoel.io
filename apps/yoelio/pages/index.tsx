@@ -4,7 +4,6 @@ import Head from "next/head";
 import {
   Box,
   Button,
-  Circle,
   Divider,
   Flex,
   Image,
@@ -54,7 +53,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <meta property="twitter:title" content={landingPage.seo.title} />
         <meta property="twitter:description" content={landingPage.seo.description} />
         <meta property="twitter:image" content={landingPage.seo.image.url} />
-        <link rel="icon" href="/yoelio_logo.png" />
+        <link rel="alternate icon" type="image/png" href="/yk.png" />
+        <link rel="icon" type="image/svg+xml" href="/yk.svg" />
       </Head>
       <Header zIndex="banner">
         <HeaderGroup mx={4}>
@@ -248,7 +248,6 @@ export async function getStaticProps() {
 
   return {
     props: data,
-    revalidate: 1,
   };
 }
 
