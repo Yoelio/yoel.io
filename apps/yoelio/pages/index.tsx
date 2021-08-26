@@ -60,9 +60,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <HeaderGroup mx={4}>
           <Link href={landingPage.seo.url} _hover={{ textDecoration: "none" }} aria-label={landingPage.seo.siteName}>
             <Text textStyle="h2">
-              Y
+              y
               <Text textStyle="inherit" as="span" color={accentColor}>
-                K
+                k
               </Text>
             </Text>
           </Link>
