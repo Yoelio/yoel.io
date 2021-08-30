@@ -20,6 +20,7 @@
     "@chakra-ui/react": "^1.6.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@yoelio/hooks": "workspace:packages/hooks",
     "framer-motion": "^4",
     "react": "17.0.2",
     "react-dom": "17.0.2"

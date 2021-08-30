@@ -1,1 +1,1 @@
-export { default as SlideUpWhenVisible } from "./SlideUpWhenVisible";
+export { default as useAnimateOnceInView } from "./useAnimateOnceInView";

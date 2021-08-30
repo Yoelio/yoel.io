@@ -20,8 +20,7 @@ import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { Card, Header, HeaderGroup } from "@yoelio/components";
-import { SlideUpWhenVisible } from "@yoelio/hooks";
+import { Card, Header, HeaderGroup, SlideFadeWhenVisible } from "@yoelio/components";
 import Query from "../contentful/query";
 import theme from "../styles/theme";
 import { renderOptions } from "../contentful/renderOptions";
@@ -164,12 +163,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Stack>
           </SlideFade>
         </Flex>
-        <SlideUpWhenVisible>
+        <SlideFadeWhenVisible>
           <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
             <Text as="h2" textStyle="h2">
               Experience
             </Text>
-            <Stack mt={4}>
+            <Stack mt={4} spacing={4}>
               {landingPage.companiesCollection.items.map((company: any) => (
                 <Card p={4} key={company.sys.id}>
                   <Box w={6} mb={4}>
@@ -201,8 +200,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               ))}
             </Stack>
           </Flex>
-        </SlideUpWhenVisible>
-        <SlideUpWhenVisible>
+        </SlideFadeWhenVisible>
+        <SlideFadeWhenVisible>
           <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
               <Box experimental_spaceY={4}>
@@ -220,7 +219,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               />
             </Flex>
           </Flex>
-        </SlideUpWhenVisible>
+        </SlideFadeWhenVisible>
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
         <Text textStyle="inherit">

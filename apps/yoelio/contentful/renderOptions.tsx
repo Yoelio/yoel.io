@@ -3,15 +3,16 @@ import { Options } from "@contentful/rich-text-react-renderer";
 import { Code, ListItem, Tag, TagLabel, TagLeftIcon, Text, UnorderedList } from "@chakra-ui/react";
 import * as SimpleIcons from "react-icons/si";
 import { IconType } from "react-icons/lib";
+import { SlideFadeWhenVisible } from "@yoelio/components";
 
 export function renderOptions(links: any, accentColor: string, typename?: string): Options {
   // create an entry map
   const entryMap = new Map();
   if (links)
     // loop through the inline linked entries and add them to the map
-    for (const entry of links.entries.inline) {
-      entryMap.set(entry.sys.id, entry);
-    }
+    links.entries.inline.forEach((entry: any, i: number) => {
+      entryMap.set(entry.sys.id, [entry, i]);
+    });
 
   return {
     /* eslint-disable react/display-name */
@@ -64,18 +65,20 @@ export function renderOptions(links: any, accentColor: string, typename?: string
       [BLOCKS.LIST_ITEM]: (_, children) => <ListItem color={accentColor}>{children}</ListItem>,
       [INLINES.EMBEDDED_ENTRY]: (node, _) => {
         // find the entry in the entryMap by ID
-        const entry = entryMap.get(node.data.target.sys.id);
+        const [entry, i] = entryMap.get(node.data.target.sys.id);
 
         // render the entries as needed
         if (entry.__typename === "Tool") {
           const { name, iconId, color } = entry as { name: string; iconId: IconType; color: string };
 
           return (
-            <Tag colorScheme={color} mr={2} mt={2}>
-              {/* @ts-ignore*/}
-              <TagLeftIcon boxSize="12px" as={SimpleIcons[iconId]} aria-label={name} />
-              <TagLabel>{name}</TagLabel>
-            </Tag>
+            <SlideFadeWhenVisible delay={i * 0.1} style={{ display: "inline-block" }} offsetX={-20} offsetY={0}>
+              <Tag colorScheme={color} mr={2} mt={2}>
+                {/* @ts-ignore*/}
+                <TagLeftIcon boxSize="12px" as={SimpleIcons[iconId]} aria-label={name} />
+                <TagLabel>{name}</TagLabel>
+              </Tag>
+            </SlideFadeWhenVisible>
           );
         }
       },
