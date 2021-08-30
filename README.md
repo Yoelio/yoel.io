@@ -20,7 +20,8 @@ Begin by adding an entry of the `Landing Page` content type.
 
 ### Environment variables
 
-Include these environment variables in a `.env.local` file in `apps/yoelio`.
+
+Duplicate the provided [`.env.example`](https://github.com/Yoelio/yoel.io/blob/main/apps/yoelio/.env.example) file and name the copy "`.env.local`" in `apps/yoelio`.
 
 ```
 CONTENTFUL_SPACE_ID=???             // Can be found in Contentful settings
