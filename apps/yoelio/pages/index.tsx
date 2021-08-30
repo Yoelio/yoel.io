@@ -206,7 +206,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Stack>
           </Flex>
         </SlideFadeWhenVisible>
-        <SlideFadeWhenVisible>
+        <SlideFadeWhenVisible threshold={0.6}>
           <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
               <Box experimental_spaceY={4}>
