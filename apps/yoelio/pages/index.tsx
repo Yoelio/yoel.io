@@ -142,15 +142,16 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </SlideFade>
           <Stack mt={8} spacing={4} direction={["column", "row"]}>
             {[
-              <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
+              <Link key={0} variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
                 <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
                 <Text>LinkedIn</Text>
               </Link>,
-              <Link variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
+              <Link key={1} variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
                 <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
                 <Text>GitHub</Text>
               </Link>,
               <Link
+                key={2}
                 variant="button"
                 href="mailto:ykiflezghi@gmail.com"
                 isExternal
