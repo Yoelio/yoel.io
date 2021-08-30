@@ -1,8 +1,6 @@
 # yoel.io
 
-## Overview
-
-A monorepo containing the source code for the `yoel.io` web app and custom Chakra UI components.
+A monorepo containing the source code for the [`yoel.io` web app](https://www.yoel.io).
 
 - The Next.js web app can be found in `apps/yoelio`
 - The custom Chakra UI components can be found in `packages/components`
@@ -11,7 +9,7 @@ A monorepo containing the source code for the `yoel.io` web app and custom Chakr
 
 The `yoel.io` web app consumes data from a headless CMS called [Contentful](https://www.contentful.com/developers/docs/). Without a Contentful Delivery API and a Preview API token, this project cannot be built. I've provided [a content model export JSON](https://github.com/Yoelio/yoel.io/blob/main/apps/yoelio/contentful_yoelio_content_model.json) that can be imported into your own Contentful space with the [Contentful CLI](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/). A successful import should leave you with a content model like this:
 
-![Contentful content model](https://imgur.com/PXv4HKx.png)
+![Contentful content model](https://user-images.githubusercontent.com/43119219/131364303-e857e074-a363-49c4-abca-8dca8dc130a2.png)
 
 
 Begin by adding an entry of the `Landing Page` content type.
@@ -20,7 +18,8 @@ Begin by adding an entry of the `Landing Page` content type.
 
 ### Environment variables
 
-Include these environment variables in a `.env.local` file in `apps/yoelio`.
+
+Duplicate the provided [`.env.example`](https://github.com/Yoelio/yoel.io/blob/main/apps/yoelio/.env.example) file and name the copy "`.env.local`" in `apps/yoelio`.
 
 ```
 CONTENTFUL_SPACE_ID=???             // Can be found in Contentful settings
