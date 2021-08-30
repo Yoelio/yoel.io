@@ -161,7 +161,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 <Text>Email</Text>
               </Link>,
             ].map((link, i) => (
-              <SlideFade in transition={{ enter: { delay: 0.6 + i * 0.1 } }}>
+              <SlideFade key={i} in transition={{ enter: { delay: 0.6 + i * 0.1 } }}>
                 {link}
               </SlideFade>
             ))}
