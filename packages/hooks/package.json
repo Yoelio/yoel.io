@@ -1,0 +1,21 @@
+{
+  "name": "@yoelio/hooks",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "yoelio <43119219+Yoelio@users.noreply.github.com>",
+  "homepage": "https://github.com/Yoelio/yoel.io#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yoelio/yoel.io.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Yoelio/yoel.io/issues"
+  },
+  "dependencies": {
+    "react-intersection-observer": "^8.32.1"
+  }
+}

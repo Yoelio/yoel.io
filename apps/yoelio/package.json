@@ -14,6 +14,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@yoelio/components": "1.0.0",
+    "@yoelio/hooks": "workspace:packages/hooks",
     "framer-motion": "^4",
     "graphql-request": "^3.5.0",
     "next": "11.1.0",

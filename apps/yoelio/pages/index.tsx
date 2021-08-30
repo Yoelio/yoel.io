@@ -8,6 +8,7 @@ import {
   Flex,
   Image,
   Link,
+  SlideFade,
   Stack,
   Text,
   useColorMode,
@@ -20,6 +21,7 @@ import { GraphQLClient } from "graphql-request";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Card, Header, HeaderGroup } from "@yoelio/components";
+import { SlideUpWhenVisible } from "@yoelio/hooks";
 import Query from "../contentful/query";
 import theme from "../styles/theme";
 import { renderOptions } from "../contentful/renderOptions";
@@ -99,110 +101,126 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         pb={4}
       >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
-          <Text fontWeight="normal">Hey there! I&apos;m-</Text>
+          <SlideFade in>
+            <Text fontWeight="normal">Hey there! I&apos;m-</Text>
+          </SlideFade>
           <Flex as="h1" textStyle="h1" direction="column" mt={2} mb={4}>
-            <Text as="span" textStyle="inherit">
-              Yoel
-            </Text>
-            <Text as="span" textStyle="inherit" color={accentColor}>
-              Kiflezghi.
-            </Text>
+            <SlideFade in transition={{ enter: { delay: 0.2 } }}>
+              <Text as="span" textStyle="inherit">
+                Yoel
+              </Text>
+            </SlideFade>
+            <SlideFade in transition={{ enter: { delay: 0.3 } }}>
+              <Text as="span" textStyle="inherit" color={accentColor}>
+                Kiflezghi.
+              </Text>
+            </SlideFade>
           </Flex>
-          {documentToReactComponents(
-            landingPage.hero.headline.json,
-            renderOptions(landingPage.hero.headline.links, accentColor, landingPage.hero.__typename)
-          )}
-          <Stack mt={4} spacing={1}>
-            <Flex gridGap={3}>
-              <Text textStyle="headline">📍</Text>
-              <Text textStyle="h3">{landingPage.hero.location}</Text>
-            </Flex>
-            <Stack>
-              {landingPage.hero.educationCollection.items.map((education: any) => (
-                <Flex gridGap={3} key={education.sys.id}>
-                  <Text textStyle="headline">🎓</Text>
-                  <Box display="inline-block">
-                    <Text textStyle="h3">{education.degree}</Text>
-                    <Text variant="secondary">{education.university}</Text>
+          <SlideFade in transition={{ enter: { delay: 0.4 } }}>
+            {documentToReactComponents(
+              landingPage.hero.headline.json,
+              renderOptions(landingPage.hero.headline.links, accentColor, landingPage.hero.__typename)
+            )}
+          </SlideFade>
+          <SlideFade in transition={{ enter: { delay: 0.5 } }}>
+            <Stack mt={4} spacing={1}>
+              <Flex gridGap={3}>
+                <Text textStyle="headline">📍</Text>
+                <Text textStyle="h3">{landingPage.hero.location}</Text>
+              </Flex>
+              <Stack>
+                {landingPage.hero.educationCollection.items.map((education: any) => (
+                  <Flex gridGap={3} key={education.sys.id}>
+                    <Text textStyle="headline">🎓</Text>
+                    <Box display="inline-block">
+                      <Text textStyle="h3">{education.degree}</Text>
+                      <Text variant="secondary">{education.university}</Text>
+                    </Box>
+                  </Flex>
+                ))}
+              </Stack>
+            </Stack>
+          </SlideFade>
+          <SlideFade in transition={{ enter: { delay: 0.6 } }}>
+            <Stack mt={8} spacing={4} direction={["column", "row"]}>
+              <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
+                <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
+                <Text>LinkedIn</Text>
+              </Link>
+              <Link variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
+                <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
+                <Text>GitHub</Text>
+              </Link>
+              <Link
+                variant="button"
+                href="mailto:ykiflezghi@gmail.com"
+                isExternal
+                placeContent="center"
+                aria-label="Email"
+              >
+                <FaEnvelope size={20} color={buttonIconColor} />
+                <Text>Email</Text>
+              </Link>
+            </Stack>
+          </SlideFade>
+        </Flex>
+        <SlideUpWhenVisible>
+          <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
+            <Text as="h2" textStyle="h2">
+              Experience
+            </Text>
+            <Stack mt={4}>
+              {landingPage.companiesCollection.items.map((company: any) => (
+                <Card p={4} key={company.sys.id}>
+                  <Box w={6} mb={4}>
+                    <Image src={company.companyLogoDesktop.url} alt="Microsoft logo" width="100%" height="100%" />
                   </Box>
-                </Flex>
+                  <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
+                    {company.experiencesCollection.items.map((experience: any) => (
+                      <Box key={experience.sys.id}>
+                        <Text variant="secondary">
+                          {experience.location} ·&nbsp;
+                          {new Date(experience.startDate).toLocaleDateString("en-US", {
+                            month: "short",
+                            year: "numeric",
+                          })}
+                          &nbsp;-&nbsp;
+                          {new Date(experience.endDate).toLocaleDateString("en-US", {
+                            month: "short",
+                            year: "numeric",
+                          })}
+                        </Text>
+                        {documentToReactComponents(
+                          experience.description.json,
+                          renderOptions(experience.description.links, accentColor)
+                        )}
+                      </Box>
+                    ))}
+                  </Stack>
+                </Card>
               ))}
             </Stack>
-          </Stack>
-          <Stack mt={8} spacing={4} direction={["column", "row"]}>
-            <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
-              <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
-              <Text>LinkedIn</Text>
-            </Link>
-            <Link variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
-              <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
-              <Text>GitHub</Text>
-            </Link>
-            <Link
-              variant="button"
-              href="mailto:ykiflezghi@gmail.com"
-              isExternal
-              placeContent="center"
-              aria-label="Email"
-            >
-              <FaEnvelope size={20} color={buttonIconColor} />
-              <Text>Email</Text>
-            </Link>
-          </Stack>
-        </Flex>
-        <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
-          <Text as="h2" textStyle="h2">
-            Experience
-          </Text>
-          <Stack mt={4}>
-            {landingPage.companiesCollection.items.map((company: any) => (
-              <Card p={4} key={company.sys.id}>
-                <Box w={6} mb={4}>
-                  <Image src={company.companyLogoDesktop.url} alt="Microsoft logo" width="100%" height="100%" />
-                </Box>
-                <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
-                  {company.experiencesCollection.items.map((experience: any) => (
-                    <Box key={experience.sys.id}>
-                      <Text variant="secondary">
-                        {experience.location} ·&nbsp;
-                        {new Date(experience.startDate).toLocaleDateString("en-US", {
-                          month: "short",
-                          year: "numeric",
-                        })}
-                        &nbsp;-&nbsp;
-                        {new Date(experience.endDate).toLocaleDateString("en-US", {
-                          month: "short",
-                          year: "numeric",
-                        })}
-                      </Text>
-                      {documentToReactComponents(
-                        experience.description.json,
-                        renderOptions(experience.description.links, accentColor)
-                      )}
-                    </Box>
-                  ))}
-                </Stack>
-              </Card>
-            ))}
-          </Stack>
-        </Flex>
-        <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
-          <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
-            <Box experimental_spaceY={4}>
-              {documentToReactComponents(
-                landingPage.aboutMe.description.json,
-                renderOptions(landingPage.aboutMe.description.links, accentColor)
-              )}
-            </Box>
-            <Image
-              src={landingPage.aboutMe.me.url}
-              borderRadius="full"
-              boxSize={["15em", "xs"]}
-              objectFit="cover"
-              alt="picture of Yoel"
-            />
           </Flex>
-        </Flex>
+        </SlideUpWhenVisible>
+        <SlideUpWhenVisible>
+          <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+            <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
+              <Box experimental_spaceY={4}>
+                {documentToReactComponents(
+                  landingPage.aboutMe.description.json,
+                  renderOptions(landingPage.aboutMe.description.links, accentColor)
+                )}
+              </Box>
+              <Image
+                src={landingPage.aboutMe.me.url}
+                borderRadius="full"
+                boxSize={["15em", "xs"]}
+                objectFit="cover"
+                alt="picture of Yoel"
+              />
+            </Flex>
+          </Flex>
+        </SlideUpWhenVisible>
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
         <Text textStyle="inherit">

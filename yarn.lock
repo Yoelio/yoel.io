@@ -2478,6 +2478,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@yoelio/hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@yoelio/hooks@workspace:packages/hooks"
+  dependencies:
+    react-intersection-observer: ^8.32.1
+  languageName: unknown
+  linkType: soft
+
 "@yoelio/yoel.io@workspace:apps/yoelio":
   version: 0.0.0-use.local
   resolution: "@yoelio/yoel.io@workspace:apps/yoelio"
@@ -2488,6 +2496,7 @@ __metadata:
     "@emotion/styled": ^11
     "@types/react": 17.0.17
     "@yoelio/components": 1.0.0
+    "@yoelio/hooks": "workspace:packages/hooks"
     eslint: 7.32.0
     eslint-config-next: 11.1.0
     framer-motion: ^4
@@ -8005,6 +8014,15 @@ fsevents@~2.3.1:
   peerDependencies:
     react: "*"
   checksum: 2b42d9b0ac85a57f8de28819b5f452b2c851f4caec09a855596d47557b775a434802fce1f3dc3811eebf46cf4d7c79fa4650330d5772345d6839f86c83afc01d
+  languageName: node
+  linkType: hard
+
+"react-intersection-observer@npm:^8.32.1":
+  version: 8.32.1
+  resolution: "react-intersection-observer@npm:8.32.1"
+  peerDependencies:
+    react: ^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0
+  checksum: 3bd4419a468299909774287244ce33390a6a2770da241fd0b53e8594b7e4ad4ffe9d08bceec616d297194a78680401029231d19388871469a0e234558de2fa47
   languageName: node
   linkType: hard
 
