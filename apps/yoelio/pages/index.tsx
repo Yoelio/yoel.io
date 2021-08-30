@@ -140,16 +140,16 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               </Stack>
             </Stack>
           </SlideFade>
-          <SlideFade in transition={{ enter: { delay: 0.6 } }}>
-            <Stack mt={8} spacing={4} direction={["column", "row"]}>
+          <Stack mt={8} spacing={4} direction={["column", "row"]}>
+            {[
               <Link variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
                 <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
                 <Text>LinkedIn</Text>
-              </Link>
+              </Link>,
               <Link variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
                 <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
                 <Text>GitHub</Text>
-              </Link>
+              </Link>,
               <Link
                 variant="button"
                 href="mailto:ykiflezghi@gmail.com"
@@ -159,9 +159,13 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               >
                 <FaEnvelope size={20} color={buttonIconColor} />
                 <Text>Email</Text>
-              </Link>
-            </Stack>
-          </SlideFade>
+              </Link>,
+            ].map((link, i) => (
+              <SlideFade in transition={{ enter: { delay: 0.6 + i * 0.1 } }}>
+                {link}
+              </SlideFade>
+            ))}
+          </Stack>
         </Flex>
         <SlideFadeWhenVisible>
           <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
