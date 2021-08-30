@@ -75,7 +75,7 @@ export function renderOptions(links: any, accentColor: string, typename?: string
             <SlideFadeWhenVisible delay={i * 0.1} style={{ display: "inline-block" }} offsetX={-20} offsetY={0}>
               <Tag colorScheme={color} mr={2} mt={2}>
                 {/* @ts-ignore*/}
-                <TagLeftIcon boxSize="12px" as={SimpleIcons[iconId]} aria-label={name} />
+                <TagLeftIcon boxSize="14px" as={SimpleIcons[iconId]} aria-label={name} />
                 <TagLabel>{name}</TagLabel>
               </Tag>
             </SlideFadeWhenVisible>
