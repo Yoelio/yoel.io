@@ -133,7 +133,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                     <Text textStyle="headline">🎓</Text>
                     <Box display="inline-block">
                       <Text textStyle="h3">{education.degree}</Text>
-                      <Text variant="secondary">{education.university}</Text>
+                      <Text variant="secondary" fontWeight="medium">
+                        {education.university}
+                      </Text>
                     </Box>
                   </Flex>
                 ))}
@@ -177,7 +179,11 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               {landingPage.companiesCollection.items.map((company: any) => (
                 <Card p={4} key={company.sys.id}>
                   <Box w={6} mb={4}>
-                    <Image src={company.companyLogoDesktop.url} alt="Microsoft logo" width="100%" height="100%" />
+                    <Image
+                      src={company.companyLogoDesktop.url}
+                      alt={company.companyLogoDesktop.description}
+                      width="24px"
+                    />
                   </Box>
                   <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
                     {company.experiencesCollection.items.map((experience: any) => (
@@ -220,7 +226,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderRadius="full"
                 boxSize={["15em", "xs"]}
                 objectFit="cover"
-                alt="picture of Yoel"
+                alt={landingPage.aboutMe.me.description}
               />
             </Flex>
           </Flex>

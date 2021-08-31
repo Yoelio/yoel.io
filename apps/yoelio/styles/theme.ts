@@ -61,6 +61,7 @@ const theme = extendTheme({
     },
     headline: {
       fontSize: ["1rem", "1.25rem", "1.5rem"],
+      fontWeight: "medium",
     },
     footer: {
       fontSize: ["0.75rem", "0.875rem"],

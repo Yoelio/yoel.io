@@ -27,9 +27,11 @@ export default {
           }
           companyLogoMobile {
             url
+            description
           }
           companyLogoDesktop {
             url
+            description
           }
           experiencesCollection(limit: 20) {
             items {
@@ -66,7 +68,10 @@ export default {
           json
         }
         me {
-          url
+          url(transform: {
+            width: 320
+          })
+          description
         }
       }
       seo {
@@ -74,7 +79,7 @@ export default {
         description
         image {
           url(transform: {
-            quality: 75
+            quality: 20
           })
         }
         url
