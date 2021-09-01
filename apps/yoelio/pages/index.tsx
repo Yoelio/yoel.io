@@ -175,16 +175,17 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             <Text as="h2" textStyle="h2">
               Experience
             </Text>
-            <Stack mt={4} spacing={4}>
+            <Stack mt={8} spacing={10}>
               {landingPage.companiesCollection.items.map((company: any) => (
-                <Card p={4} key={company.sys.id}>
-                  <Box w={6} mb={4}>
+                <Card key={company.sys.id} p={4} display="flex" flexDirection="column" alignItems="center">
+                  <Card display="flex" mt={-10} mb={2} p={2} w="max-content" h="max-content">
                     <Image
                       src={company.companyLogoDesktop.url}
                       alt={company.companyLogoDesktop.description}
-                      width="24px"
+                      width="30px"
+                      height="30px"
                     />
-                  </Box>
+                  </Card>
                   <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
                     {company.experiencesCollection.items.map((experience: any) => (
                       <Box key={experience.sys.id}>
