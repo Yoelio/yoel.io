@@ -244,15 +244,15 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Text>
         <Text textStyle="inherit">
           Built with&nbsp;
-          <Link href="https://nextjs.org/" isExternal color={accentColor} textStyle="inherit">
+          <Link href="https://nextjs.org/" isExternal color={accentColor} textStyle="inherit" fontWeight="black">
             Next.js
           </Link>
           &nbsp;&amp;&nbsp;
-          <Link href="https://chakra-ui.com/" isExternal color={accentColor} textStyle="inherit">
+          <Link href="https://chakra-ui.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="black">
             Chakra UI
           </Link>
           . Deployed on&nbsp;
-          <Link href="https://vercel.com/" isExternal color={accentColor} textStyle="inherit">
+          <Link href="https://vercel.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="black">
             Vercel
           </Link>
           .
