@@ -124,7 +124,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           <SlideFade in transition={{ enter: { delay: 0.5 } }}>
             <Stack mt={4} spacing={1}>
               <Flex gridGap={3}>
-                <Text textStyle="headline">📍</Text>
+                <Text textStyle="headline">🌎</Text>
                 <Text textStyle="h3">{landingPage.hero.location}</Text>
               </Flex>
               <Stack>
