@@ -213,12 +213,14 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                     p={2}
                     boxSize="max-content"
                   >
-                    <Image
-                      src={company.companyLogoDesktop.url}
-                      alt={company.companyLogoDesktop.description}
-                      width="30px"
-                      height="30px"
-                    />
+                    <SlideFadeWhenVisible threshold={1}>
+                      <Image
+                        src={company.companyLogoDesktop.url}
+                        alt={company.companyLogoDesktop.description}
+                        width="30px"
+                        height="30px"
+                      />
+                    </SlideFadeWhenVisible>
                   </Card>
                   <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
                     {company.experiencesCollection.items.map((experience: any) => (
