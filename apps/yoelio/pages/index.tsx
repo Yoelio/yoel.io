@@ -33,7 +33,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow);
   const accentColor = useColorModeValue("solYellow", "solCyan");
   const dividerColor = useColorModeValue("base.00", "base.0");
-
+  const altBgColor = useColorModeValue("base.2", "base.03");
   return (
     <>
       <Head>
@@ -144,17 +144,35 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </SlideFade>
           <Stack mt={8} spacing={4} direction={["column", "row"]}>
             {[
-              <Link key={0} variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
+              <Link
+                key={0}
+                variant="button"
+                border="1px"
+                borderColor={accentColor}
+                href="https://linkedin.com/in/yoel-k"
+                isExternal
+                placeContent="center"
+              >
                 <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
                 <Text>LinkedIn</Text>
               </Link>,
-              <Link key={1} variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
+              <Link
+                key={1}
+                variant="button"
+                border="1px"
+                borderColor={accentColor}
+                href="https://github.com/Yoelio"
+                isExternal
+                placeContent="center"
+              >
                 <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
                 <Text>GitHub</Text>
               </Link>,
               <Link
                 key={2}
                 variant="button"
+                border="1px"
+                borderColor={accentColor}
                 href="mailto:ykiflezghi@gmail.com"
                 isExternal
                 placeContent="center"
@@ -177,8 +195,24 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Text>
             <Stack mt={8} spacing={10}>
               {landingPage.companiesCollection.items.map((company: any) => (
-                <Card key={company.sys.id} p={4} display="flex" flexDirection="column" alignItems="center">
-                  <Card display="flex" mt={-10} mb={2} p={2} w="max-content" h="max-content">
+                <Card
+                  key={company.sys.id}
+                  p={4}
+                  border="1px"
+                  borderColor={accentColor}
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                >
+                  <Card
+                    display="flex"
+                    border="2px"
+                    borderColor={accentColor}
+                    mt={-10}
+                    mb={2}
+                    p={2}
+                    boxSize="max-content"
+                  >
                     <Image
                       src={company.companyLogoDesktop.url}
                       alt={company.companyLogoDesktop.description}
@@ -218,12 +252,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <SlideFadeWhenVisible threshold={0.6}>
           <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
-              <Box experimental_spaceY={4}>
+              <Card experimental_spaceY={4} p={4} border="1px" borderColor={accentColor}>
                 {documentToReactComponents(
                   landingPage.aboutMe.description.json,
                   renderOptions(landingPage.aboutMe.description.links, accentColor)
                 )}
-              </Box>
+              </Card>
               <Image
                 src={landingPage.aboutMe.me.url}
                 borderRadius="full"
