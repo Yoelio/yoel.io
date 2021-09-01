@@ -14,8 +14,9 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import * as SimpleIcons from "react-icons/si";
+import { SiLinkedin, SiGithub } from "react-icons/si";
 import { FaSun, FaMoon, FaEnvelope } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -33,7 +34,6 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow);
   const accentColor = useColorModeValue("solYellow", "solCyan");
   const dividerColor = useColorModeValue("base.00", "base.0");
-  const altBgColor = useColorModeValue("base.2", "base.03");
   return (
     <>
       <Head>
@@ -70,10 +70,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </HeaderGroup>
         <HeaderGroup mx={4}>
           <Link variant="buttonGhost" py={2.5} href="https://linkedin.com/in/yoel-k" isExternal>
-            <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
+            <SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
           </Link>
           <Link variant="buttonGhost" py={2.5} href="https://github.com/Yoelio" isExternal>
-            <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
+            <SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
           </Link>
           <Button
             variant="alt"
@@ -153,7 +153,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 isExternal
                 placeContent="center"
               >
-                <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
+                <SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
                 <Text>LinkedIn</Text>
               </Link>,
               <Link
@@ -165,7 +165,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 isExternal
                 placeContent="center"
               >
-                <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
+                <SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
                 <Text>GitHub</Text>
               </Link>,
               <Link
@@ -281,19 +281,34 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Text>
         <Text textStyle="inherit">
           Built with&nbsp;
-          <Link href="https://nextjs.org/" isExternal color={accentColor} textStyle="inherit" fontWeight="black">
+          <Link href="https://nextjs.org/" isExternal color={accentColor} textStyle="inherit" fontWeight="bold">
             Next.js
           </Link>
           &nbsp;&amp;&nbsp;
-          <Link href="https://chakra-ui.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="black">
+          <Link href="https://chakra-ui.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="bold">
             Chakra UI
           </Link>
           . Deployed on&nbsp;
-          <Link href="https://vercel.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="black">
+          <Link href="https://vercel.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="bold">
             Vercel
           </Link>
           .
         </Text>
+        <br />
+        <Link
+          href="https://github.com/Yoelio/yoel.io/"
+          isExternal
+          color={accentColor}
+          textStyle="inherit"
+          fontWeight="bold"
+          display="inline-flex"
+          alignItems="center"
+          justifyContent="center"
+          gridGap={2}
+        >
+          <SiGithub />
+          Source Code
+        </Link>
       </Flex>
     </>
   );
