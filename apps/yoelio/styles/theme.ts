@@ -6,7 +6,7 @@ import { HeaderStyle as Header, CardStyle as Card } from "@yoelio/components";
 const theme = extendTheme({
   config: {
     initialColorMode: "dark",
-    useSystemColorMode: false,
+    useSystemColorMode: true,
   },
   styles: {
     global: (props) => ({
