@@ -195,10 +195,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                             year: "numeric",
                           })}
                           &nbsp;-&nbsp;
-                          {new Date(experience.endDate).toLocaleDateString("en-US", {
-                            month: "short",
-                            year: "numeric",
-                          })}
+                          {experience.endDate
+                            ? new Date(experience.endDate).toLocaleDateString("en-US", {
+                                month: "short",
+                                year: "numeric",
+                              })
+                            : "Present"}
                         </Text>
                         {documentToReactComponents(
                           experience.description.json,
