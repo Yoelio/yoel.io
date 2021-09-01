@@ -110,12 +110,12 @@ const theme = extendTheme({
     },
     Text: {
       baseStyle: (props) => ({
-        color: props.colorMode === "dark" ? "base.2" : "base.02",
+        color: mode("base.02", "base.2")(props),
         textStyle: "body",
       }),
       variants: {
         secondary: (props) => ({
-          color: props.colorMode === "dark" ? "base.1" : "base.01",
+          color: mode("base.01", "base.1")(props),
           textStyle: "body",
         }),
       },
@@ -123,13 +123,13 @@ const theme = extendTheme({
     Header: {
       baseStyle: (props) => ({
         ...Header.baseStyle,
-        bg: props.colorMode === "dark" ? "base.02" : "base.3",
+        bg: mode("base.3", "base.02")(props),
       }),
     },
     Card: {
       baseStyle: (props) => ({
         ...Card.baseStyle,
-        bg: props.colorMode === "dark" ? "base.02" : "base.3",
+        bg: mode("base.3", "base.02")(props),
       }),
     },
   },
