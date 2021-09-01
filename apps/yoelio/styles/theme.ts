@@ -75,10 +75,10 @@ const theme = extendTheme({
       }),
       variants: {
         alt: (props) => ({
-          bg: mode("base.3", "base.03")(props),
-          boxShadow: "md",
+          bg: mode("base.3", "base.02")(props),
+          boxShadow: "none",
           _hover: {
-            boxShadow: "xl",
+            bg: mode("base.2", "base.03")(props),
           },
         }),
       },
@@ -91,9 +91,9 @@ const theme = extendTheme({
           display: "flex",
           gridGap: 4,
           boxShadow: "md",
-          bg: mode("base.2", "base.02")(props),
+          bg: mode("base.3", "base.02")(props),
           _hover: {
-            bg: mode("base.3", "base.03")(props),
+            bg: mode("base.2", "base.03")(props),
             boxShadow: "xl",
           },
         }),
@@ -103,8 +103,7 @@ const theme = extendTheme({
           display: "flex",
           gridGap: 4,
           _hover: {
-            bg: mode("base.3", "base.03")(props),
-            boxShadow: "xl",
+            bg: mode("base.2", "base.03")(props),
           },
         }),
       },
@@ -124,13 +123,13 @@ const theme = extendTheme({
     Header: {
       baseStyle: (props) => ({
         ...Header.baseStyle,
-        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+        bg: props.colorMode === "dark" ? "base.02" : "base.3",
       }),
     },
     Card: {
       baseStyle: (props) => ({
         ...Card.baseStyle,
-        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+        bg: props.colorMode === "dark" ? "base.02" : "base.3",
       }),
     },
   },

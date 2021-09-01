@@ -96,7 +96,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         pattern="topography"
         bgColor="transparent"
         minH="100vh"
-        patOpacity={0.3}
+        patOpacity={0.2}
         pb={4}
       >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
