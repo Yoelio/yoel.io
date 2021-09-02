@@ -30,13 +30,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const { colors } = theme;
   const { colorMode, toggleColorMode } = useColorMode();
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
-  const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow);
-  const accentColor = useColorModeValue("solYellow", "solCyan");
+  const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow[600]);
+  const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
   const dividerColor = useColorModeValue("base.00", "base.0");
-  const imageBoxShadow = useColorModeValue(
-    "0 0 0 2px var(--chakra-colors-solYellow)",
-    "0 0 0 2px var(--chakra-colors-solCyan)"
-  );
   return (
     <>
       <Head>
@@ -270,7 +266,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderRadius="full"
                 boxSize={["15em", "xs"]}
                 objectFit="cover"
-                boxShadow={imageBoxShadow}
+                boxShadow={`0 0 0 3px var(--chakra-colors-${accentColor.replace(".", "-")})`}
                 alt={landingPage.aboutMe.me.description}
               />
             </Flex>

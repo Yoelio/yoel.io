@@ -18,7 +18,7 @@ export function renderOptions(links: any, accentColor: string, typename?: string
     /* eslint-disable react/display-name */
     renderMark: {
       [MARKS.CODE]: (text) => (
-        <Code colorScheme="orange" fontWeight="bold" borderRadius="md">
+        <Code colorScheme={accentColor.split(".")[0]} fontWeight="bold" borderRadius="md">
           {text}
         </Code>
       ),
