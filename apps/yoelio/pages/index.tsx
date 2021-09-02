@@ -205,7 +205,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 >
                   <Card
                     display="flex"
-                    border="1px"
+                    border="4px"
                     borderColor={accentColor}
                     mt={-12}
                     mb={2}
