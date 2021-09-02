@@ -2,7 +2,7 @@ import { motion, MotionProps } from "framer-motion";
 import { useAnimateOnceInView } from "@yoelio/hooks";
 
 type SlideFadeWhenVisibleProps = {
-  children: React.ReactChild;
+  children: React.ReactChild | React.ReactChild[];
   threshold?: number;
   duration?: number;
   offsetX?: number;
