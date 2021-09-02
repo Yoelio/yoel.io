@@ -16,7 +16,6 @@ import {
 } from "@chakra-ui/react";
 import { SiLinkedin, SiGithub } from "react-icons/si";
 import { FaSun, FaMoon, FaEnvelope } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
 import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -147,7 +146,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Link
                 key={0}
                 variant="button"
-                border="1px"
+                borderBottom="2px"
                 borderColor={accentColor}
                 href="https://linkedin.com/in/yoel-k"
                 isExternal
@@ -159,7 +158,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Link
                 key={1}
                 variant="button"
-                border="1px"
+                borderBottom="2px"
                 borderColor={accentColor}
                 href="https://github.com/Yoelio"
                 isExternal
@@ -171,7 +170,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Link
                 key={2}
                 variant="button"
-                border="1px"
+                borderBottom="2px"
                 borderColor={accentColor}
                 href="mailto:ykiflezghi@gmail.com"
                 isExternal
@@ -188,17 +187,17 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             ))}
           </Stack>
         </Flex>
-        <SlideFadeWhenVisible>
-          <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
-            <Text as="h2" textStyle="h2">
+        <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[24, 48]} direction="column">
+          <SlideFadeWhenVisible>
+            <Text as="h2" textStyle="h2" textAlign="center">
               Experience
             </Text>
-            <Stack mt={8} spacing={10}>
+            <Stack mt={[12, 16]} spacing={12}>
               {landingPage.companiesCollection.items.map((company: any) => (
                 <Card
                   key={company.sys.id}
                   p={4}
-                  border="1px"
+                  borderTop="4px"
                   borderColor={accentColor}
                   display="flex"
                   flexDirection="column"
@@ -206,9 +205,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 >
                   <Card
                     display="flex"
-                    border="2px"
+                    border="1px"
                     borderColor={accentColor}
-                    mt={-10}
+                    mt={-12}
                     mb={2}
                     p={2}
                     boxSize="max-content"
@@ -217,8 +216,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                       <Image
                         src={company.companyLogoDesktop.url}
                         alt={company.companyLogoDesktop.description}
-                        width="30px"
-                        height="30px"
+                        boxSize="30px"
                       />
                     </SlideFadeWhenVisible>
                   </Card>
@@ -249,12 +247,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 </Card>
               ))}
             </Stack>
-          </Flex>
-        </SlideFadeWhenVisible>
-        <SlideFadeWhenVisible threshold={0.6}>
-          <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+          </SlideFadeWhenVisible>
+        </Flex>
+        <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+          <SlideFadeWhenVisible threshold={0.6}>
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
-              <Card experimental_spaceY={4} p={4} border="1px" borderColor={accentColor}>
+              <Card experimental_spaceY={4} p={4} borderLeft="4px" borderColor={accentColor}>
                 {documentToReactComponents(
                   landingPage.aboutMe.description.json,
                   renderOptions(landingPage.aboutMe.description.links, accentColor)
@@ -268,8 +266,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 alt={landingPage.aboutMe.me.description}
               />
             </Flex>
-          </Flex>
-        </SlideFadeWhenVisible>
+          </SlideFadeWhenVisible>
+        </Flex>
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
         <Text textStyle="inherit">
