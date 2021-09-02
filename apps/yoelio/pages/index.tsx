@@ -33,6 +33,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow);
   const accentColor = useColorModeValue("solYellow", "solCyan");
   const dividerColor = useColorModeValue("base.00", "base.0");
+  const imageBoxShadow = useColorModeValue(
+    "0 0 0 2px var(--chakra-colors-solYellow)",
+    "0 0 0 2px var(--chakra-colors-solCyan)"
+  );
   return (
     <>
       <Head>
@@ -266,7 +270,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderRadius="full"
                 boxSize={["15em", "xs"]}
                 objectFit="cover"
-                boxShadow="0 0 0 4px var(--chakra-colors-solYellow)"
+                boxShadow={imageBoxShadow}
                 alt={landingPage.aboutMe.me.description}
               />
             </Flex>
