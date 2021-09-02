@@ -37,7 +37,7 @@ const theme = extendTheme({
       300: "#ffd44d",
       400: "#ffc71e",
       500: "#e6ae06",
-      600: "#b38700",
+      600: "#b58900", // true solarized yellow
       700: "#806100",
       800: "#4e3a00",
       900: "#1d1300",
@@ -53,7 +53,7 @@ const theme = extendTheme({
       300: "#71dad2",
       400: "#4dd0c5",
       500: "#34b6ac",
-      600: "#258e86",
+      600: "#2aa198", // true solarized cyan
       700: "#16655f",
       800: "#043e39",
       900: "#001614",

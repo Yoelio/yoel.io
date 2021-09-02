@@ -32,6 +32,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
   const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow[600]);
   const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
+  const footerLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const dividerColor = useColorModeValue("base.00", "base.0");
   return (
     <>
@@ -282,15 +283,15 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Text>
         <Text textStyle="inherit">
           Built with&nbsp;
-          <Link href="https://nextjs.org/" isExternal color={accentColor} textStyle="inherit" fontWeight="bold">
+          <Link href="https://nextjs.org/" isExternal color={footerLinkColor} textStyle="inherit" fontWeight="bold">
             Next.js
           </Link>
           &nbsp;&amp;&nbsp;
-          <Link href="https://chakra-ui.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="bold">
+          <Link href="https://chakra-ui.com/" isExternal color={footerLinkColor} textStyle="inherit" fontWeight="bold">
             Chakra UI
           </Link>
           . Deployed on&nbsp;
-          <Link href="https://vercel.com/" isExternal color={accentColor} textStyle="inherit" fontWeight="bold">
+          <Link href="https://vercel.com/" isExternal color={footerLinkColor} textStyle="inherit" fontWeight="bold">
             Vercel
           </Link>
           .
@@ -299,7 +300,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <Link
           href="https://github.com/Yoelio/yoel.io/"
           isExternal
-          color={accentColor}
+          color={footerLinkColor}
           textStyle="inherit"
           fontWeight="bold"
           display="inline-flex"
@@ -307,7 +308,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           justifyContent="center"
           gridGap={2}
         >
-          <SiGithub />
+          <SiGithub aria-label="GitHub Logo." />
           Source Code
         </Link>
       </Flex>
