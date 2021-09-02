@@ -79,7 +79,7 @@ export function renderOptions(links: any, accentColor: string, typename?: string
               offsetX={-20}
               offsetY={0}
             >
-              <Tag colorScheme={color} mr={2} mt={2}>
+              <Tag colorScheme={color} mr={2} mt={2} boxShadow="sm">
                 {/* @ts-ignore*/}
                 <TagLeftIcon boxSize="14px" as={SimpleIcons[iconId]} aria-label={name} />
                 <TagLabel>{name}</TagLabel>
