@@ -1,6 +1,6 @@
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
-import { Code, ListItem, Tag, TagLabel, TagLeftIcon, Text, UnorderedList } from "@chakra-ui/react";
+import { Code, ListItem, Image, Tag, TagLabel, TagLeftIcon, Text, UnorderedList } from "@chakra-ui/react";
 import * as SimpleIcons from "react-icons/si";
 import { IconType } from "react-icons/lib";
 import { SlideFadeWhenVisible } from "@yoelio/components";
@@ -8,12 +8,19 @@ import { SlideFadeWhenVisible } from "@yoelio/components";
 export function renderOptions(links: any, accentColor: string, typename?: string): Options {
   // create an entry map
   const entryMap = new Map();
-  if (links)
+  if (links?.entries?.inline) {
     // loop through the inline linked entries and add them to the map
     links.entries.inline.forEach((entry: any, i: number) => {
       entryMap.set(entry.sys.id, [entry, i]);
     });
-
+  }
+  // create an asset map
+  const assetMap = new Map();
+  if (links?.assets?.hyperlink)
+    // loop through the assets and add them to the map
+    for (const asset of links.assets.hyperlink) {
+      assetMap.set(asset.sys.id, asset);
+    }
   return {
     /* eslint-disable react/display-name */
     renderMark: {
@@ -87,6 +94,13 @@ export function renderOptions(links: any, accentColor: string, typename?: string
             </SlideFadeWhenVisible>
           );
         }
+      },
+      [INLINES.ASSET_HYPERLINK]: (node, _) => {
+        // find the asset in the assetMap by ID
+        const asset = assetMap.get(node.data.target.sys.id);
+        // render the asset accordingly
+        if (typename === "AboutMe")
+          return <Image display="inline" w={["1rem", "1.25rem"]} src={asset.url} alt={asset.description} />;
       },
     },
     /* eslint-enable react/display-name */

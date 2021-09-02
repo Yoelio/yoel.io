@@ -204,7 +204,6 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                   borderColor={accentColor}
                   display="flex"
                   flexDirection="column"
-                  alignItems="center"
                 >
                   <Card
                     display="flex"
@@ -258,7 +257,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Card experimental_spaceY={4} p={4} borderLeft="4px" borderColor={accentColor}>
                 {documentToReactComponents(
                   landingPage.aboutMe.description.json,
-                  renderOptions(landingPage.aboutMe.description.links, accentColor)
+                  renderOptions(landingPage.aboutMe.description.links, accentColor, landingPage.aboutMe.__typename)
                 )}
               </Card>
               <Image

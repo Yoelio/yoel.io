@@ -64,8 +64,20 @@ export default {
         }
       }
       aboutMe {
+        __typename
         description {
           json
+          links {
+            assets {
+              hyperlink {
+                sys {
+                  id
+                }
+                url
+                description
+              }
+            }
+          }
         }
         me {
           url(transform: {
