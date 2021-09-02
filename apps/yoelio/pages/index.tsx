@@ -146,8 +146,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Link
                 key={0}
                 variant="button"
-                borderBottom="2px"
-                borderColor={accentColor}
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
                 href="https://linkedin.com/in/yoel-k"
                 isExternal
                 placeContent="center"
@@ -158,8 +159,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Link
                 key={1}
                 variant="button"
-                borderBottom="2px"
-                borderColor={accentColor}
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
                 href="https://github.com/Yoelio"
                 isExternal
                 placeContent="center"
@@ -170,8 +172,9 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               <Link
                 key={2}
                 variant="button"
-                borderBottom="2px"
-                borderColor={accentColor}
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
                 href="mailto:ykiflezghi@gmail.com"
                 isExternal
                 placeContent="center"
@@ -205,7 +208,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 >
                   <Card
                     display="flex"
-                    border="4px"
+                    border="2px"
                     borderColor={accentColor}
                     mt={-12}
                     mb={2}
@@ -249,7 +252,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Stack>
           </SlideFadeWhenVisible>
         </Flex>
-        <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+        <Flex as="section" id="about-me" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
           <SlideFadeWhenVisible threshold={0.6}>
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
               <Card experimental_spaceY={4} p={4} borderLeft="4px" borderColor={accentColor}>
@@ -263,6 +266,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderRadius="full"
                 boxSize={["15em", "xs"]}
                 objectFit="cover"
+                boxShadow="0 0 0 4px var(--chakra-colors-solYellow)"
                 alt={landingPage.aboutMe.me.description}
               />
             </Flex>
