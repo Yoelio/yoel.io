@@ -271,11 +271,11 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <Flex as="section" id="contact" maxW="3xl" mx="auto" px={4} mt={36} direction="column">
           <SlideFadeWhenVisible>
             <Text as="h2" textStyle="h2" textAlign="center">
-              Don't be a stranger!
+              Don&apos;t be a stranger!
             </Text>
             <Text textAlign="center" mt={4}>
-              Feel free to reach out! Whether it's about work opportunities or just to chat, I'm more than happy to make
-              time to talk. You can reach me by&nbsp;
+              Feel free to reach out! Whether it&apos;s about work opportunities or just to chat, I&apos;m more than
+              happy to make time to talk. You can reach me by&nbsp;
               <Link isExternal fontWeight="bold" color={inlineLinkColor} href="mailto:ykiflezghi@gmail.com">
                 Email
               </Link>
