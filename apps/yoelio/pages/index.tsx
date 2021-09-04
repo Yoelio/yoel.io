@@ -193,10 +193,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Flex>
         <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[24, 48]} direction="column">
           <SlideFadeWhenVisible>
-            <Text as="h2" textStyle="h2" textAlign="center">
-              Experience
-            </Text>
-            <Stack mt={[12, 16]} spacing={12}>
+            <Stack mt={[12]} spacing={12}>
+              <Card p={4} borderLeft="4px" borderColor={accentColor}>
+                <Text as="h2" textStyle="h2">
+                  Experience
+                </Text>
+              </Card>
               {landingPage.companiesCollection.items.map((company: any) => (
                 <Card
                   key={company.sys.id}
@@ -223,7 +225,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                       />
                     </SlideFadeWhenVisible>
                   </Card>
-                  <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
+                  <Stack spacing={6} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
                     {company.experiencesCollection.items.map((experience: any) => (
                       <Box key={experience.sys.id}>
                         <Text variant="secondary">
@@ -296,16 +298,17 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </Link>
           .
         </Text>
-        <br />
         <Link
           href="https://github.com/Yoelio/yoel.io/"
           isExternal
           color={footerLinkColor}
           textStyle="inherit"
           fontWeight="bold"
-          display="inline-flex"
+          mt={4}
+          w="max-content"
+          alignSelf="center"
+          display="flex"
           alignItems="center"
-          justifyContent="center"
           gridGap={2}
         >
           <SiGithub aria-label="GitHub Logo." />

@@ -54,6 +54,7 @@ export default {
                         name
                         color
                         iconId
+                        url
                       }
                     }
                   }
