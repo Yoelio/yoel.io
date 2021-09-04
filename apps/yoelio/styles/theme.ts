@@ -6,7 +6,7 @@ import { HeaderStyle as Header, CardStyle as Card } from "@yoelio/components";
 const theme = extendTheme({
   config: {
     initialColorMode: "dark",
-    useSystemColorMode: false,
+    useSystemColorMode: true,
   },
   styles: {
     global: (props) => ({
@@ -30,12 +30,34 @@ const theme = extendTheme({
       2: "#eee8d5",
       3: "#fdf6e3",
     },
-    solYellow: "#b58900",
+    solYellow: {
+      50: "#fff9db",
+      100: "#ffecaf",
+      200: "#ffe07f",
+      300: "#ffd44d",
+      400: "#ffc71e",
+      500: "#e6ae06",
+      600: "#b58900", // true solarized yellow
+      700: "#806100",
+      800: "#4e3a00",
+      900: "#1d1300",
+    },
     solRed: "#dc322f",
     solMagenta: "#d33682",
     solViolet: "#6c71c4",
     solBlue: "#268bd2",
-    solCyan: "#2aa198",
+    solCyan: {
+      50: "#dffdfb",
+      100: "#bcf0ed",
+      200: "#98e5df",
+      300: "#71dad2",
+      400: "#4dd0c5",
+      500: "#34b6ac",
+      600: "#2aa198", // true solarized cyan
+      700: "#16655f",
+      800: "#043e39",
+      900: "#001614",
+    },
     solGreen: "#859900",
   },
   textStyles: {
@@ -75,10 +97,10 @@ const theme = extendTheme({
       }),
       variants: {
         alt: (props) => ({
-          bg: mode("base.3", "base.03")(props),
-          boxShadow: "md",
+          bg: mode("base.3", "base.02")(props),
+          boxShadow: "none",
           _hover: {
-            boxShadow: "xl",
+            bg: mode("base.2", "base.03")(props),
           },
         }),
       },
@@ -91,9 +113,9 @@ const theme = extendTheme({
           display: "flex",
           gridGap: 4,
           boxShadow: "md",
-          bg: mode("base.2", "base.02")(props),
+          bg: mode("base.3", "base.02")(props),
           _hover: {
-            bg: mode("base.3", "base.03")(props),
+            bg: mode("base.2", "base.03")(props),
             boxShadow: "xl",
           },
         }),
@@ -103,20 +125,19 @@ const theme = extendTheme({
           display: "flex",
           gridGap: 4,
           _hover: {
-            bg: mode("base.3", "base.03")(props),
-            boxShadow: "xl",
+            bg: mode("base.2", "base.03")(props),
           },
         }),
       },
     },
     Text: {
       baseStyle: (props) => ({
-        color: props.colorMode === "dark" ? "base.2" : "base.02",
+        color: mode("base.02", "base.2")(props),
         textStyle: "body",
       }),
       variants: {
         secondary: (props) => ({
-          color: props.colorMode === "dark" ? "base.1" : "base.01",
+          color: mode("base.01", "base.1")(props),
           textStyle: "body",
         }),
       },
@@ -124,13 +145,13 @@ const theme = extendTheme({
     Header: {
       baseStyle: (props) => ({
         ...Header.baseStyle,
-        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+        bg: mode("base.3", "base.02")(props),
       }),
     },
     Card: {
       baseStyle: (props) => ({
         ...Card.baseStyle,
-        bg: props.colorMode === "dark" ? "base.02" : "base.2",
+        bg: mode("base.3", "base.02")(props),
       }),
     },
   },

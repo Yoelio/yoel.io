@@ -14,7 +14,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import * as SimpleIcons from "react-icons/si";
+import { SiLinkedin, SiGithub } from "react-icons/si";
 import { FaSun, FaMoon, FaEnvelope } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
@@ -30,10 +30,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const { colors } = theme;
   const { colorMode, toggleColorMode } = useColorMode();
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
-  const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow);
-  const accentColor = useColorModeValue("solYellow", "solCyan");
+  const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow[600]);
+  const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
+  const inlineLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const dividerColor = useColorModeValue("base.00", "base.0");
-
   return (
     <>
       <Head>
@@ -69,12 +69,6 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </Link>
         </HeaderGroup>
         <HeaderGroup mx={4}>
-          <Link variant="buttonGhost" py={2.5} href="https://linkedin.com/in/yoel-k" isExternal>
-            <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
-          </Link>
-          <Link variant="buttonGhost" py={2.5} href="https://github.com/Yoelio" isExternal>
-            <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
-          </Link>
           <Button
             variant="alt"
             iconSpacing={0}
@@ -96,8 +90,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         pattern="topography"
         bgColor="transparent"
         minH="100vh"
-        patOpacity={0.3}
-        pb={4}
+        patOpacity={0.2}
+        pb={36}
       >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
           <SlideFade in>
@@ -124,7 +118,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           <SlideFade in transition={{ enter: { delay: 0.5 } }}>
             <Stack mt={4} spacing={1}>
               <Flex gridGap={3}>
-                <Text textStyle="headline">📍</Text>
+                <Text textStyle="headline">🌎</Text>
                 <Text textStyle="h3">{landingPage.hero.location}</Text>
               </Flex>
               <Stack>
@@ -144,17 +138,38 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </SlideFade>
           <Stack mt={8} spacing={4} direction={["column", "row"]}>
             {[
-              <Link key={0} variant="button" href="https://linkedin.com/in/yoel-k" isExternal placeContent="center">
-                <SimpleIcons.SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
+              <Link
+                key={0}
+                variant="button"
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
+                href="https://linkedin.com/in/yoel-k"
+                isExternal
+                placeContent="center"
+              >
+                <SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
                 <Text>LinkedIn</Text>
               </Link>,
-              <Link key={1} variant="button" href="https://github.com/Yoelio" isExternal placeContent="center">
-                <SimpleIcons.SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
+              <Link
+                key={1}
+                variant="button"
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
+                href="https://github.com/Yoelio"
+                isExternal
+                placeContent="center"
+              >
+                <SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
                 <Text>GitHub</Text>
               </Link>,
               <Link
                 key={2}
                 variant="button"
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
                 href="mailto:ykiflezghi@gmail.com"
                 isExternal
                 placeContent="center"
@@ -170,22 +185,41 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             ))}
           </Stack>
         </Flex>
-        <SlideFadeWhenVisible>
-          <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[12, 48]} direction="column">
-            <Text as="h2" textStyle="h2">
-              Experience
-            </Text>
-            <Stack mt={4} spacing={4}>
+        <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[24, 48]} direction="column">
+          <SlideFadeWhenVisible>
+            <Stack spacing={12}>
+              <Card p={4} borderLeft="4px" borderColor={accentColor}>
+                <Text as="h2" textStyle="h2">
+                  Experience
+                </Text>
+              </Card>
               {landingPage.companiesCollection.items.map((company: any) => (
-                <Card p={4} key={company.sys.id}>
-                  <Box w={6} mb={4}>
-                    <Image
-                      src={company.companyLogoDesktop.url}
-                      alt={company.companyLogoDesktop.description}
-                      width="24px"
-                    />
-                  </Box>
-                  <Stack spacing={8} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
+                <Card
+                  key={company.sys.id}
+                  p={4}
+                  borderTop="4px"
+                  borderColor={accentColor}
+                  display="flex"
+                  flexDirection="column"
+                >
+                  <Card
+                    display="flex"
+                    border="2px"
+                    borderColor={accentColor}
+                    mt={-12}
+                    mb={2}
+                    p={2}
+                    boxSize="max-content"
+                  >
+                    <SlideFadeWhenVisible threshold={1}>
+                      <Image
+                        src={company.companyLogoDesktop.url}
+                        alt={company.companyLogoDesktop.description}
+                        boxSize="30px"
+                      />
+                    </SlideFadeWhenVisible>
+                  </Card>
+                  <Stack spacing={6} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
                     {company.experiencesCollection.items.map((experience: any) => (
                       <Box key={experience.sys.id}>
                         <Text variant="secondary">
@@ -195,10 +229,12 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                             year: "numeric",
                           })}
                           &nbsp;-&nbsp;
-                          {new Date(experience.endDate).toLocaleDateString("en-US", {
-                            month: "short",
-                            year: "numeric",
-                          })}
+                          {experience.endDate
+                            ? new Date(experience.endDate).toLocaleDateString("en-US", {
+                                month: "short",
+                                year: "numeric",
+                              })
+                            : "Present"}
                         </Text>
                         {documentToReactComponents(
                           experience.description.json,
@@ -210,27 +246,47 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 </Card>
               ))}
             </Stack>
-          </Flex>
-        </SlideFadeWhenVisible>
-        <SlideFadeWhenVisible threshold={0.6}>
-          <Flex as="section" id="aboutMe" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+          </SlideFadeWhenVisible>
+        </Flex>
+        <Flex as="section" id="about-me" maxW="5xl" mx="auto" px={4} mt={24} direction="column">
+          <SlideFadeWhenVisible threshold={0.6}>
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
-              <Box experimental_spaceY={4}>
+              <Card experimental_spaceY={4} p={4} borderLeft="4px" borderColor={accentColor}>
                 {documentToReactComponents(
                   landingPage.aboutMe.description.json,
-                  renderOptions(landingPage.aboutMe.description.links, accentColor)
+                  renderOptions(landingPage.aboutMe.description.links, accentColor, landingPage.aboutMe.__typename)
                 )}
-              </Box>
+              </Card>
               <Image
                 src={landingPage.aboutMe.me.url}
                 borderRadius="full"
                 boxSize={["15em", "xs"]}
                 objectFit="cover"
+                boxShadow={`0 0 0 3px var(--chakra-colors-${accentColor.replace(".", "-")})`}
                 alt={landingPage.aboutMe.me.description}
               />
             </Flex>
-          </Flex>
-        </SlideFadeWhenVisible>
+          </SlideFadeWhenVisible>
+        </Flex>
+        <Flex as="section" id="contact" maxW="3xl" mx="auto" px={4} mt={36} direction="column">
+          <SlideFadeWhenVisible>
+            <Text as="h2" textStyle="h2" textAlign="center">
+              Don&apos;t be a stranger!
+            </Text>
+            <Text textAlign="center" mt={4}>
+              Feel free to reach out! Whether it&apos;s about work opportunities or just to chat, I&apos;m more than
+              happy to make time to talk. You can reach me by&nbsp;
+              <Link isExternal fontWeight="bold" color={inlineLinkColor} href="mailto:ykiflezghi@gmail.com">
+                Email
+              </Link>
+              &nbsp;or&nbsp;
+              <Link isExternal fontWeight="bold" color={inlineLinkColor} href="https://linkedin.com/in/yoel-k">
+                LinkedIn
+              </Link>
+              .
+            </Text>
+          </SlideFadeWhenVisible>
+        </Flex>
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
         <Text textStyle="inherit">
@@ -242,19 +298,35 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Text>
         <Text textStyle="inherit">
           Built with&nbsp;
-          <Link href="https://nextjs.org/" isExternal color={accentColor} textStyle="inherit">
+          <Link href="https://nextjs.org/" isExternal color={inlineLinkColor} textStyle="inherit" fontWeight="bold">
             Next.js
           </Link>
           &nbsp;&amp;&nbsp;
-          <Link href="https://chakra-ui.com/" isExternal color={accentColor} textStyle="inherit">
+          <Link href="https://chakra-ui.com/" isExternal color={inlineLinkColor} textStyle="inherit" fontWeight="bold">
             Chakra UI
           </Link>
           . Deployed on&nbsp;
-          <Link href="https://vercel.com/" isExternal color={accentColor} textStyle="inherit">
+          <Link href="https://vercel.com/" isExternal color={inlineLinkColor} textStyle="inherit" fontWeight="bold">
             Vercel
           </Link>
           .
         </Text>
+        <Link
+          href="https://github.com/Yoelio/yoel.io/"
+          isExternal
+          color={inlineLinkColor}
+          textStyle="inherit"
+          fontWeight="bold"
+          mt={4}
+          w="max-content"
+          alignSelf="center"
+          display="flex"
+          alignItems="center"
+          gridGap={2}
+        >
+          <SiGithub aria-label="GitHub Logo." />
+          Source Code
+        </Link>
       </Flex>
     </>
   );
@@ -276,6 +348,7 @@ export async function getStaticProps() {
 
   return {
     props: data,
+    revalidate: 1,
   };
 }
 
