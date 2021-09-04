@@ -32,7 +32,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
   const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow[600]);
   const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
-  const footerLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
+  const inlineLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const dividerColor = useColorModeValue("base.00", "base.0");
   return (
     <>
@@ -69,12 +69,6 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </Link>
         </HeaderGroup>
         <HeaderGroup mx={4}>
-          <Link variant="buttonGhost" py={2.5} href="https://linkedin.com/in/yoel-k" isExternal>
-            <SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
-          </Link>
-          <Link variant="buttonGhost" py={2.5} href="https://github.com/Yoelio" isExternal>
-            <SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
-          </Link>
           <Button
             variant="alt"
             iconSpacing={0}
@@ -97,7 +91,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         bgColor="transparent"
         minH="100vh"
         patOpacity={0.2}
-        pb={4}
+        pb={36}
       >
         <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
           <SlideFade in>
@@ -193,7 +187,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Flex>
         <Flex as="section" id="experience" maxW="5xl" mx="auto" px={4} mt={[24, 48]} direction="column">
           <SlideFadeWhenVisible>
-            <Stack mt={[12]} spacing={12}>
+            <Stack spacing={12}>
               <Card p={4} borderLeft="4px" borderColor={accentColor}>
                 <Text as="h2" textStyle="h2">
                   Experience
@@ -274,6 +268,25 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             </Flex>
           </SlideFadeWhenVisible>
         </Flex>
+        <Flex as="section" id="contact" maxW="3xl" mx="auto" px={4} mt={36} direction="column">
+          <SlideFadeWhenVisible>
+            <Text as="h2" textStyle="h2" textAlign="center">
+              Don't be a stranger!
+            </Text>
+            <Text textAlign="center" mt={4}>
+              Feel free to reach out! Whether it's about work opportunities or just to chat, I'm more than happy to make
+              time to talk. You can reach me by&nbsp;
+              <Link isExternal fontWeight="bold" color={inlineLinkColor} href="mailto:ykiflezghi@gmail.com">
+                Email
+              </Link>
+              &nbsp;or&nbsp;
+              <Link isExternal fontWeight="bold" color={inlineLinkColor} href="https://linkedin.com/in/yoel-k">
+                LinkedIn
+              </Link>
+              .
+            </Text>
+          </SlideFadeWhenVisible>
+        </Flex>
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
         <Text textStyle="inherit">
@@ -285,15 +298,15 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         </Text>
         <Text textStyle="inherit">
           Built with&nbsp;
-          <Link href="https://nextjs.org/" isExternal color={footerLinkColor} textStyle="inherit" fontWeight="bold">
+          <Link href="https://nextjs.org/" isExternal color={inlineLinkColor} textStyle="inherit" fontWeight="bold">
             Next.js
           </Link>
           &nbsp;&amp;&nbsp;
-          <Link href="https://chakra-ui.com/" isExternal color={footerLinkColor} textStyle="inherit" fontWeight="bold">
+          <Link href="https://chakra-ui.com/" isExternal color={inlineLinkColor} textStyle="inherit" fontWeight="bold">
             Chakra UI
           </Link>
           . Deployed on&nbsp;
-          <Link href="https://vercel.com/" isExternal color={footerLinkColor} textStyle="inherit" fontWeight="bold">
+          <Link href="https://vercel.com/" isExternal color={inlineLinkColor} textStyle="inherit" fontWeight="bold">
             Vercel
           </Link>
           .
@@ -301,7 +314,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         <Link
           href="https://github.com/Yoelio/yoel.io/"
           isExternal
-          color={footerLinkColor}
+          color={inlineLinkColor}
           textStyle="inherit"
           fontWeight="bold"
           mt={4}
