@@ -15,7 +15,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { SiLinkedin, SiGithub } from "react-icons/si";
-import { FaSun, FaMoon, FaEnvelope } from "react-icons/fa";
+import { FaSun, FaMoon, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -93,7 +93,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         patOpacity={0.2}
         pb={36}
       >
-        <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={36} direction="column">
+        <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={[24, 36]} direction="column">
           <SlideFade in>
             <Text fontWeight="normal">Hey there! I&apos;m-</Text>
           </SlideFade>
@@ -136,7 +136,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               </Stack>
             </Stack>
           </SlideFade>
-          <Stack mt={8} spacing={4} direction={["column", "row"]}>
+          <Stack mt={8} gridGap={2} direction={["column", "row"]} wrap="wrap">
             {[
               <Link
                 key={0}
@@ -177,6 +177,20 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
               >
                 <FaEnvelope size={20} color={buttonIconColor} />
                 <Text>Email</Text>
+              </Link>,
+              <Link
+                key={3}
+                variant="button"
+                border={["1px", "0px"]}
+                borderBottom={["1px", "2px"]}
+                borderColor={[accentColor, accentColor]}
+                href="/api/resume"
+                isExternal
+                placeContent="center"
+                aria-label="Email"
+              >
+                <FaFileAlt size={20} color={buttonIconColor} />
+                <Text>Resume</Text>
               </Link>,
             ].map((link, i) => (
               <SlideFade key={i} in transition={{ enter: { delay: 0.6 + i * 0.1 } }}>
