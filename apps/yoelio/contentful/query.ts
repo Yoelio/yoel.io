@@ -92,7 +92,7 @@ export default {
         description
         image {
           url(transform: {
-            quality: 20
+            width: 320
           })
         }
         url
