@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -20,7 +21,7 @@ type Data struct {
 func Resume(w http.ResponseWriter, r *http.Request) {
 	accessToken := os.Getenv("CONTENTFUL_ACCESS_TOKEN")
 	spaceId := os.Getenv("CONTENTFUL_SPACE_ID")
-	resp, err := http.Get("https://cdn.contentful.com/spaces/" + spaceId + "/environments/master/assets/2yqI31pDmRtrrGEKI7RHnZ?access_token=" + accessToken)
+	resp, err := http.Get(fmt.Sprintf("https://cdn.contentful.com/spaces/%s/environments/master/assets/2yqI31pDmRtrrGEKI7RHnZ?access_token=%s", spaceId, accessToken))
 	if err != nil {
 		log.Fatal(err)
 	}
