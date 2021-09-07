@@ -283,7 +283,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </SlideFadeWhenVisible>
         </Flex>
         <Flex as="section" id="contact" maxW="3xl" mx="auto" px={4} mt={36} direction="column">
-          <SlideFadeWhenVisible>
+          <SlideFadeWhenVisible threshold={1}>
             <Text as="h2" textStyle="h2" textAlign="center">
               Don&apos;t be a stranger!
             </Text>
