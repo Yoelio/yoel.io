@@ -1,6 +1,6 @@
 # yoel.io
 
-A monorepo containing the source code for the [`yoel.io` web app](https://www.yoel.io).
+A monorepo containing the source code for the [yoel.io web app](https://www.yoel.io).
 
 - The Next.js web app can be found in `apps/yoelio`
 - The custom Chakra UI components can be found in `packages/components`
