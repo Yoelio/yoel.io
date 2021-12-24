@@ -79,13 +79,7 @@ export function renderOptions(links: any, accentColor: string, typename?: string
           const { name, iconId, color, url } = entry as { name: string; iconId: IconType; color: string; url: string };
 
           return (
-            <SlideFadeWhenVisible
-              threshold={1}
-              delay={i * 0.1}
-              style={{ display: "inline-block" }}
-              offsetX={-20}
-              offsetY={0}
-            >
+            <SlideFadeWhenVisible threshold={1} delay={(entryMap.size - i) * 0.1} style={{ display: "inline-block" }}>
               <Tag colorScheme={color} mr={2} mt={2} boxShadow="sm">
                 <Link isExternal href={url}>
                   {/* @ts-ignore*/}

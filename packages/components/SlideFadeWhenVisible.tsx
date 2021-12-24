@@ -11,29 +11,26 @@ type SlideFadeWhenVisibleProps = {
 } & MotionProps;
 
 export default function SlideFadeWhenVisible({
-  children,
   threshold,
-  duration,
-  offsetX,
-  offsetY,
-  delay,
+  duration = 0.4,
+  offsetX = 0,
+  offsetY = 20,
+  delay = 0,
   ...rest
 }: SlideFadeWhenVisibleProps) {
   const { ref, controls } = useAnimateOnceInView(threshold);
 
   return (
     <motion.div
-      {...rest}
       ref={ref}
       animate={controls}
       initial="hidden"
-      transition={{ duration: duration ?? 0.4, delay: delay ?? 0 }}
+      transition={{ duration, delay }}
       variants={{
+        hidden: { opacity: 0, y: offsetY, x: offsetX },
         visible: { opacity: 1, y: 0, x: 0 },
-        hidden: { opacity: 0, y: offsetY ?? 20, x: offsetX },
       }}
-    >
-      {children}
-    </motion.div>
+      {...rest}
+    />
   );
 }

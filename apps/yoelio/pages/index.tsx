@@ -1,6 +1,7 @@
-import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import {
   Box,
   Button,
@@ -26,40 +27,46 @@ import theme from "../styles/theme";
 import { renderOptions } from "../contentful/renderOptions";
 
 const Home: NextPage<{ landingPage: any }> = (props) => {
-  const landingPage = props.landingPage;
+  const data = props.landingPage;
+
   const { colors } = theme;
-  const { colorMode, toggleColorMode } = useColorMode();
-  const buttonIconColor = useColorModeValue(colors.base["03"], colors.base[3]);
-  const colorModeIconColor = useColorModeValue(colors.solViolet, colors.solYellow[600]);
+  const buttonIconColor = useColorModeValue("base.03", "base.3");
   const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
   const inlineLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const dividerColor = useColorModeValue("base.00", "base.0");
+  const ColorModeIcon = useColorModeValue(
+    <FaMoon size={20} color={colors.solViolet} />,
+    <FaSun size={20} color={colors.solYellow["600"]} />
+  );
+  const { toggleColorMode } = useColorMode();
+  const { locale } = useRouter();
   return (
     <>
       <Head>
-        <title>{landingPage.seo.title}</title>
-        <meta name="title" content={landingPage.seo.title} />
-        <meta name="description" content={landingPage.seo.description} />
-        {landingPage.seo.noindex && <meta name="robots" content="noindex" />}
+        <title>{data.seo.title}</title>
+        <meta name="title" content={data.seo.title} />
+        <meta name="description" content={data.seo.description} />
+        {data.seo.noindex && <meta name="robots" content="noindex" />}
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={landingPage.seo.url} />
-        <meta property="og:title" content={landingPage.seo.title} />
-        <meta property="og:site_name" content={landingPage.seo.siteName} />
-        <meta property="og:description" content={landingPage.seo.description} />
-        <meta property="og:image" content={landingPage.seo.image.url} />
+        <meta property="og:url" content={data.seo.url} />
+        <meta property="og:title" content={data.seo.title} />
+        <meta property="og:site_name" content={data.seo.siteName} />
+        <meta property="og:description" content={data.seo.description} />
+        <meta property="og:image" content={data.seo.image.url} />
 
-        <meta property="twitter:card" content={landingPage.seo.image.url} />
-        <meta property="twitter:url" content={landingPage.seo.url} />
-        <meta property="twitter:title" content={landingPage.seo.title} />
-        <meta property="twitter:description" content={landingPage.seo.description} />
-        <meta property="twitter:image" content={landingPage.seo.image.url} />
+        <meta property="twitter:card" content={data.seo.image.url} />
+        <meta property="twitter:url" content={data.seo.url} />
+        <meta property="twitter:title" content={data.seo.title} />
+        <meta property="twitter:description" content={data.seo.description} />
+        <meta property="twitter:image" content={data.seo.image.url} />
+
         <link rel="alternate icon" type="image/png" href="/yk.png" />
         <link rel="icon" type="image/svg+xml" href="/yk.svg" />
       </Head>
       <Header zIndex="banner">
         <HeaderGroup mx={4}>
-          <Link href={landingPage.seo.url} _hover={{ textDecoration: "none" }} aria-label={landingPage.seo.siteName}>
+          <Link href={data.seo.url} _hover={{ textDecoration: "none" }} aria-label={data.seo.siteName}>
             <Text textStyle="h2">
               y
               <Text textStyle="inherit" as="span" color={accentColor}>
@@ -72,13 +79,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           <Button
             variant="alt"
             iconSpacing={0}
-            leftIcon={
-              colorMode === "dark" ? (
-                <FaSun size={20} color={colorModeIconColor} />
-              ) : (
-                <FaMoon size={20} color={colorModeIconColor} />
-              )
-            }
+            leftIcon={ColorModeIcon}
             onClick={toggleColorMode}
             aria-label="Toggle Color Mode"
           />
@@ -111,18 +112,18 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           </Flex>
           <SlideFade in transition={{ enter: { delay: 0.4 } }}>
             {documentToReactComponents(
-              landingPage.hero.headline.json,
-              renderOptions(landingPage.hero.headline.links, accentColor, landingPage.hero.__typename)
+              data.hero.headline.json,
+              renderOptions(data.hero.headline.links, accentColor, data.hero.__typename)
             )}
           </SlideFade>
           <SlideFade in transition={{ enter: { delay: 0.5 } }}>
             <Stack mt={4} spacing={1}>
               <Flex gridGap={3}>
                 <Text textStyle="headline">🌎</Text>
-                <Text textStyle="h3">{landingPage.hero.location}</Text>
+                <Text textStyle="h3">{data.hero.location}</Text>
               </Flex>
               <Stack>
-                {landingPage.hero.educationCollection.items.map((education: any) => (
+                {data.hero.educationCollection.items.map((education: any) => (
                   <Flex gridGap={3} key={education.sys.id}>
                     <Text textStyle="headline">🎓</Text>
                     <Box display="inline-block">
@@ -207,7 +208,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                   Experience
                 </Text>
               </Card>
-              {landingPage.companiesCollection.items.map((company: any) => (
+              {data.companiesCollection.items.map((company: any) => (
                 <Card
                   key={company.sys.id}
                   p={4}
@@ -226,11 +227,17 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                     boxSize="max-content"
                   >
                     <SlideFadeWhenVisible threshold={1}>
-                      <Image
-                        src={company.companyLogoDesktop.url}
-                        alt={company.companyLogoDesktop.description}
-                        boxSize="30px"
-                      />
+                      <Flex gridGap={4} alignItems={"center"}>
+                        <Image
+                          src={company.companyLogoDesktop.url}
+                          alt={company.companyLogoDesktop.description}
+                          boxSize="30px"
+                          display={"inline-block"}
+                        />
+                        <Text textStyle={"h3"} display={"inline-block"}>
+                          {company.name}
+                        </Text>
+                      </Flex>
                     </SlideFadeWhenVisible>
                   </Card>
                   <Stack spacing={6} divider={<Divider borderColor={dividerColor} opacity={0.2} />}>
@@ -238,13 +245,13 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                       <Box key={experience.sys.id}>
                         <Text variant="secondary">
                           {experience.location} ·&nbsp;
-                          {new Date(experience.startDate).toLocaleDateString("en-US", {
+                          {new Date(experience.startDate).toLocaleDateString(locale, {
                             month: "short",
                             year: "numeric",
                           })}
                           &nbsp;-&nbsp;
                           {experience.endDate
-                            ? new Date(experience.endDate).toLocaleDateString("en-US", {
+                            ? new Date(experience.endDate).toLocaleDateString(locale, {
                                 month: "short",
                                 year: "numeric",
                               })
@@ -267,17 +274,17 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
             <Flex direction={["column", null, "row"]} alignItems="center" gridGap={8}>
               <Card experimental_spaceY={4} p={4} borderLeft="4px" borderColor={accentColor}>
                 {documentToReactComponents(
-                  landingPage.aboutMe.description.json,
-                  renderOptions(landingPage.aboutMe.description.links, accentColor, landingPage.aboutMe.__typename)
+                  data.aboutMe.description.json,
+                  renderOptions(data.aboutMe.description.links, accentColor, data.aboutMe.__typename)
                 )}
               </Card>
               <Image
-                src={landingPage.aboutMe.me.url}
+                src={data.aboutMe.me.url}
                 borderRadius="full"
                 boxSize={["15em", "xs"]}
                 objectFit="cover"
                 boxShadow={`0 0 0 3px var(--chakra-colors-${accentColor.replace(".", "-")})`}
-                alt={landingPage.aboutMe.me.description}
+                alt={data.aboutMe.me.description}
               />
             </Flex>
           </SlideFadeWhenVisible>

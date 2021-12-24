@@ -25,6 +25,7 @@ export default {
           sys {
             id
           }
+          name
           companyLogoMobile {
             url
             description
