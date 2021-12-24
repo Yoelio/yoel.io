@@ -94,7 +94,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         patOpacity={0.2}
         pb={36}
       >
-        <Flex as="section" id="hero" maxW={"5xl"} mx="auto" px={4} pt={[24, 36]} direction="column">
+        <Flex as="section" id="hero" maxW="5xl" mx="auto" px={4} pt={[24, 36]} direction="column">
           <SlideFade in>
             <Text fontWeight="normal">Hey there! I&apos;m-</Text>
           </SlideFade>
@@ -227,14 +227,14 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                     boxSize="max-content"
                   >
                     <SlideFadeWhenVisible threshold={1}>
-                      <Flex gridGap={4} alignItems={"center"}>
+                      <Flex gridGap={4} alignItems="center">
                         <Image
                           src={company.companyLogoDesktop.url}
                           alt={company.companyLogoDesktop.description}
                           boxSize="30px"
-                          display={"inline-block"}
+                          display="inline-block"
                         />
-                        <Text textStyle={"h3"} display={"inline-block"}>
+                        <Text textStyle="h3" display="inline-block">
                           {company.name}
                         </Text>
                       </Flex>
