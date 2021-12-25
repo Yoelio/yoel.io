@@ -79,8 +79,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
         pb={36}
       >
         <Hero data={data} accentColor={accentColor} />
-        <AboutMe data={data} accentColor={accentColor} />
         <Experience data={data} accentColor={accentColor} />
+        <AboutMe data={data} accentColor={accentColor} />
         <Contact />
       </PillPity>
       <Flex as="footer" direction="column" textAlign="center" textStyle="footer" py={12} px={4}>
