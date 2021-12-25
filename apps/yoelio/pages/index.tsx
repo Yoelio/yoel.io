@@ -222,8 +222,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                     border="2px"
                     borderColor={accentColor}
                     mt={-12}
-                    mb={2}
-                    p={2}
+                    mb={4}
+                    p={3}
                     boxSize="max-content"
                   >
                     <SlideFadeWhenVisible threshold={1}>

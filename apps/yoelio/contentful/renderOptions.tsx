@@ -65,7 +65,7 @@ export function renderOptions(links: any, accentColor: string, typename?: string
         return <Text>{children}</Text>;
       },
       [BLOCKS.UL_LIST]: (_, children) => (
-        <UnorderedList spacing={1} listStyleType="square" ml={6} mt={4}>
+        <UnorderedList spacing={3} listStyleType="square" ml={6} mt={4}>
           {children}
         </UnorderedList>
       ),
@@ -81,7 +81,7 @@ export function renderOptions(links: any, accentColor: string, typename?: string
           return (
             <SlideFadeWhenVisible threshold={1} delay={(entryMap.size - i) * 0.1} style={{ display: "inline-block" }}>
               <Tag colorScheme={color} mr={2} mt={2} boxShadow="sm">
-                <Link isExternal href={url}>
+                <Link isExternal href={url} display="flex" alignItems="center">
                   {/* @ts-ignore*/}
                   <TagLeftIcon boxSize="14px" as={SimpleIcons[iconId]} aria-label={name} />
                   <TagLabel>{name}</TagLabel>
