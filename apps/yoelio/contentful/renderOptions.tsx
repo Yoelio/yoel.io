@@ -80,10 +80,10 @@ export function renderOptions(links: any, accentColor: string, typename?: string
 
           return (
             <SlideFadeWhenVisible threshold={1} delay={(entryMap.size - i) * 0.1} style={{ display: "inline-block" }}>
-              <Tag colorScheme={color} mr={2} mt={2} boxShadow="sm">
-                <Link isExternal href={url} display="flex" alignItems="center">
+              <Tag colorScheme={color} mr={2} mt={2} px={0} boxShadow="sm">
+                <Link isExternal href={url} display="flex" alignItems="center" px={2} py={1}>
                   {/* @ts-ignore*/}
-                  <TagLeftIcon boxSize="14px" as={SimpleIcons[iconId]} aria-label={name} />
+                  <TagLeftIcon boxSize="16px" as={SimpleIcons[iconId]} aria-label={name} />
                   <TagLabel>{name}</TagLabel>
                 </Link>
               </Tag>

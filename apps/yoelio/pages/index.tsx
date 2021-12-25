@@ -30,7 +30,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
   const data = props.landingPage;
 
   const { colors } = theme;
-  const buttonIconColor = useColorModeValue("base.03", "base.3");
+  const buttonIconColor = useColorModeValue(colors.base["03"], colors.base["3"]);
   const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
   const inlineLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const dividerColor = useColorModeValue("base.00", "base.0");
@@ -147,7 +147,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderColor={[accentColor, accentColor]}
                 href="https://linkedin.com/in/yoel-k"
                 isExternal
-                placeContent="center"
+                alignItems="center"
+                justifyContent="center"
               >
                 <SiLinkedin size={20} color={buttonIconColor} aria-label="LinkedIn" />
                 <Text>LinkedIn</Text>
@@ -160,7 +161,8 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderColor={[accentColor, accentColor]}
                 href="https://github.com/Yoelio"
                 isExternal
-                placeContent="center"
+                alignItems="center"
+                justifyContent="center"
               >
                 <SiGithub size={20} color={buttonIconColor} aria-label="GitHub" />
                 <Text>GitHub</Text>
@@ -173,10 +175,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderColor={[accentColor, accentColor]}
                 href="mailto:ykiflezghi@gmail.com"
                 isExternal
-                placeContent="center"
-                aria-label="Email"
+                alignItems="center"
+                justifyContent="center"
               >
-                <FaEnvelope size={20} color={buttonIconColor} />
+                <FaEnvelope size={20} color={buttonIconColor} aria-label="Email" />
                 <Text>Email</Text>
               </Link>,
               <Link
@@ -187,10 +189,10 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
                 borderColor={[accentColor, accentColor]}
                 href="/api/resume"
                 isExternal
-                placeContent="center"
-                aria-label="Email"
+                alignItems="center"
+                justifyContent="center"
               >
-                <FaFileAlt size={20} color={buttonIconColor} />
+                <FaFileAlt size={20} color={buttonIconColor} aria-label="Résumé" />
                 <Text>Resume</Text>
               </Link>,
             ].map((link, i) => (
