@@ -2,7 +2,6 @@ import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
 import { Code, ListItem, Image, Tag, TagLabel, TagLeftIcon, Text, UnorderedList, Link } from "@chakra-ui/react";
 import * as SimpleIcons from "react-icons/si";
-import { IconType } from "react-icons/lib";
 import { SlideFadeWhenVisible } from "@yoelio/components";
 
 export function renderOptions(links: any, accentColor: string, typename?: string): Options {
@@ -76,14 +75,17 @@ export function renderOptions(links: any, accentColor: string, typename?: string
 
         // render the entries as needed
         if (entry.__typename === "Tool") {
-          const { name, iconId, color, url } = entry as { name: string; iconId: IconType; color: string; url: string };
-
+          const { name, iconId, color, url } = entry as {
+            name: string;
+            iconId: keyof typeof SimpleIcons;
+            color: string;
+            url: string;
+          };
           return (
             <SlideFadeWhenVisible threshold={1} delay={(entryMap.size - i) * 0.1} style={{ display: "inline-block" }}>
               <Tag colorScheme={color} mr={2} mt={2} px={0} boxShadow="sm">
                 <Link isExternal href={url} display="flex" alignItems="center" px={2} py={1}>
-                  {/* @ts-ignore*/}
-                  <TagLeftIcon boxSize="16px" as={SimpleIcons[iconId]} aria-label={name} />
+                  <TagLeftIcon as={SimpleIcons[iconId]} boxSize={4} aria-label={name} />
                   <TagLabel>{name}</TagLabel>
                 </Link>
               </Tag>

@@ -1,26 +1,23 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { Button, Flex, Link, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import { SiGithub } from "react-icons/si";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { Button, Flex, Icon, Link, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+
+import { FaSun, FaMoon, FaGithub } from "react-icons/fa";
 import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
 
 import { Header, HeaderGroup } from "@yoelio/components";
 import Query from "../contentful/query";
 import { Hero, Experience, AboutMe, Contact } from "./sections";
-import theme from "../styles/theme";
 
 const Home: NextPage<{ landingPage: any }> = (props) => {
   const data = props.landingPage;
-
-  const { colors } = theme;
   const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
   const inlineLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const ColorModeIcon = useColorModeValue(
-    <FaMoon size={20} color={colors.solViolet} />,
-    <FaSun size={20} color={colors.solYellow["600"]} />
+    <Icon as={FaMoon} boxSize={5} color="solViolet" />,
+    <Icon as={FaSun} boxSize={5} color="solYellow.600" />
   );
   const { toggleColorMode } = useColorMode();
 
@@ -119,7 +116,7 @@ const Home: NextPage<{ landingPage: any }> = (props) => {
           alignItems="center"
           gridGap={2}
         >
-          <SiGithub aria-label="GitHub Logo." />
+          <FaGithub aria-label="GitHub Logo." />
           Source Code
         </Link>
       </Flex>

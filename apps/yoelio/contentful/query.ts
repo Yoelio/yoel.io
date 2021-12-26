@@ -19,6 +19,15 @@ export default {
             university
           }
         }
+        linksCollection {
+          items {
+            sys {
+              id
+            }
+            type
+            url
+          }
+        }
       }
       companiesCollection(limit: 20) {
         items {
