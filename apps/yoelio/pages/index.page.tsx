@@ -11,8 +11,7 @@ import { Header, HeaderGroup } from "@yoelio/components";
 import Query from "../contentful/query";
 import { Hero, Experience, AboutMe, Contact } from "./sections";
 
-const Home: NextPage<{ landingPage: any }> = (props) => {
-  const data = props.landingPage;
+const Home: NextPage<any> = (data) => {
   const accentColor = useColorModeValue("solYellow.600", "solCyan.600");
   const inlineLinkColor = useColorModeValue("solYellow.700", "solCyan.600");
   const ColorModeIcon = useColorModeValue(
@@ -139,7 +138,7 @@ export async function getStaticProps() {
   const data = await client.request(Query.landingPage, { preview: process.env.NODE_ENV === "development" });
 
   return {
-    props: data,
+    props: data.landingPage,
     revalidate: 1,
   };
 }
