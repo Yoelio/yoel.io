@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = (props) => {
           </Stack>
         </Stack>
       </SlideFade>
-      <Stack mt={8} gridGap={2} direction={["column", "row"]} wrap="wrap">
+      <Stack mt={8} gridGap={3} spacing={0} direction={["column", "row"]} wrap="wrap">
         {data.hero.linksCollection.items.map((link: any, i: number) => (
           <SlideFade key={link.sys.id} in transition={{ enter: { delay: 0.6 + i * 0.1 } }}>
             <Link
