@@ -8,7 +8,7 @@ import { PillPity } from "pill-pity";
 import { GraphQLClient } from "graphql-request";
 
 import { Header, HeaderGroup } from "@yoelio/components";
-import Query from "../contentful/query";
+import Query from "../../contentful/query";
 import { Hero, Experience, AboutMe, Contact } from "./sections";
 
 const Home: NextPage<any> = (data) => {

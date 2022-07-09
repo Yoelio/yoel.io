@@ -2,7 +2,7 @@ import { Flex, Image } from "@chakra-ui/react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Card, SlideFadeWhenVisible } from "@yoelio/components";
 import React from "react";
-import { renderOptions } from "../../contentful/renderOptions";
+import { renderOptions } from "../../../contentful/renderOptions";
 
 type AboutMeProps = {
   data: any;

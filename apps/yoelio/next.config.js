@@ -18,4 +18,12 @@ module.exports = {
   experimental: {
     externalDir: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/index',
+      },
+    ]
+  },
 };

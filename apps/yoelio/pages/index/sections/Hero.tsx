@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Flex, Icon, Link, SlideFade, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from "react-icons/fa";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { renderOptions } from "../../contentful/renderOptions";
+import { renderOptions } from "../../../contentful/renderOptions";
 import { IconType } from "react-icons/lib";
 
 type HeroProps = {

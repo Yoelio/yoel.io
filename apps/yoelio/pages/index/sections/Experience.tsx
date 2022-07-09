@@ -3,7 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Card, SlideFadeWhenVisible } from "@yoelio/components";
 import { useRouter } from "next/router";
 import React from "react";
-import { renderOptions } from "../../contentful/renderOptions";
+import { renderOptions } from "../../../contentful/renderOptions";
 
 type ExperienceProps = {
   data: any;
